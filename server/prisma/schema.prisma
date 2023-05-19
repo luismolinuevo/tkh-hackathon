@@ -17,19 +17,33 @@ model User {
   lastName  String? @db.VarChar(255)
   userName  String  @db.VarChar(255)
   post      Post[]
+  votes     Votes[]
 }
 
 model Post {
   id                       Int    @id @unique @default(autoincrement())
   cost                     String
+  description              String
   implementationDifficulty String
   location                 String
   livingSituation          String
-  upVotes                  Int
-  downVotes                Int
 
   userId Int
   user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  votes Votes[]
 
   @@index([userId])
+}
+
+model Votes {
+  id     Int    @id @unique @default(autoincrement())
+  postId Int
+  userId Int
+  type   String //could be upvote or downvote
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([postId])
 }

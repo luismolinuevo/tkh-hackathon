@@ -12,4 +12,16 @@ router.get("/", async (req, res) => {
     });
 });
 
+router.post("/", async (req, res) => {
+    const createPost = await prisma.post.create({
+        data: {
+            cost: req.body.cost,
+            implementationDifficulty: req.body.implementationDifficulty,
+            location: req.body.location,
+            livingSituation: req.body.livingSituation,
+            description: req.body.description
+        }
+    })
+});
+
 export default router;

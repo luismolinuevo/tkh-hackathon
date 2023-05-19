@@ -6,8 +6,30 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
+model User {
+  id        Int     @id @unique @default(autoincrement())
+  firstName String? @db.VarChar(255)
+  lastName  String? @db.VarChar(255)
+  userName  String  @db.VarChar(255)
+  post      Post[]
+}
 
+model Post {
+  id                       Int    @id @unique @default(autoincrement())
+  cost                     String
+  implementationDifficulty String
+  location                 String
+  livingSituation          String
+  upVotes                  Int
+  downVotes                Int
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}

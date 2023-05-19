@@ -8,7 +8,7 @@ const NavAndFooter = () => {
           <main className="flex justify-center">
               <Outlet />
           </main>
-          <div>This is the footer</div>
+          {/* <div>This is the footer</div> */}
     </div>
   );
 };

@@ -5,7 +5,7 @@ const NavAndFooter = () => {
   return (
     <div>
           <Navbar />
-          <main>
+          <main className="flex justify-center">
               <Outlet />
           </main>
           <div>This is the footer</div>

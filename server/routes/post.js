@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
             location: req.body.location,
             livingSituation: req.body.livingSituation,
             description: req.body.description,
-            userId: req.body.userId
+            userName: req.body.userName
             // user: {connect: {id: req.body.userId}}
         },
         

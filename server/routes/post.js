@@ -101,6 +101,21 @@ router.put("/:postId/vote", async (req, res) => {
     }
   });
   
+  router.get("/upvotes/:userName", async (req, res) => {
+    const { userName } = req.params;
+    const getUpvotes = await prisma.votes.findMany({
+        where: {
+            userName: userName,
+            type: "upvote"
+        },
+        include: { post: true },
+    });
+
+    res.status(200).json({
+        success: true,
+        getUpvotes
+    });
+  });
   
 
 export default router;

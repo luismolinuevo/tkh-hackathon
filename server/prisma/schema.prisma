@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+// model User {
+//   id        Int     @id @unique @default(autoincrement())
+//   firstName String? @db.VarChar(255)
+//   lastName  String? @db.VarChar(255)
+//   userName  String  @db.VarChar(255)
+//   // post      Post[]
+//   // votes     Votes[]
+// }
+
+model Post {
+  id                       Int    @id @unique @default(autoincrement())
+  cost                     String
+  description              String
+  implementationDifficulty String
+  location                 String
+  livingSituation          String
+  title                    String
+
+  userName  String //since we are faking it I wont have any real relations 
+  // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  votes     Votes[]
+  upvotes   Int     @default(0)
+  downvotes Int     @default(0)
+
+  // @@index([userId])
+}
+
+model Votes {
+  id       Int    @id @unique @default(autoincrement())
+  postId   Int
+  userName String //since we are faking it I wont have any real relations 
+  type     String //could be upvote or downvote
+
+  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  // @@index([userId])
+  @@index([postId])
+}

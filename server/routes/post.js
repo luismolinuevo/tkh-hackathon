@@ -117,12 +117,12 @@ router.put("/:postId/vote", async (req, res) => {
   }
 });
 
-router.get("/upvotes/:userName", async (req, res) => {
-  const { userName } = req.params;
+router.get("/upvotes/:userName/:type", async (req, res) => {
+  const { userName, type } = req.params;
   const getUpvotes = await prisma.votes.findMany({
     where: {
       userName: userName,
-      type: "upvote",
+      type: type,
     },
     include: { post: true },
   });

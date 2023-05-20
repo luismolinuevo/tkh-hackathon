@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Card = ({ description, votes, username, id, posts, setPosts }) => {
+const Card = ({ description, votes, username, id, posts, setPosts, title}) => {
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
 

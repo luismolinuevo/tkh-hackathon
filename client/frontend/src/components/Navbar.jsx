@@ -5,7 +5,7 @@ const LoggedIn = true;
 const Navbar = () => {
   return (
     <div>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="" className="flex items-center">
             <img src="" className="h-8 mr-3" alt="TEMP LOGO" />
@@ -27,9 +27,9 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
@@ -80,11 +80,11 @@ const Navbar = () => {
                   width="24"
                   height="24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="css-i6dzq1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="css-i6dzq1"
                 >
                   <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                 </svg>

@@ -21,6 +21,7 @@ router.post("/", async (req, res) => {
       country: req.body.country,
       zipCode: req.body.zipCode,
       city: req.body.city,
+      goodFor: req.body.goodFor,
       livingSituation: req.body.livingSituation,
       description: req.body.description,
       userName: req.body.userName,

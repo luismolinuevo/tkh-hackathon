@@ -23,7 +23,7 @@ datasource db {
 model Post {
   id                       Int    @id @unique @default(autoincrement())
   cost                     String
-  description              String
+  description              String @db.VarChar(10000)
   implementationDifficulty String
   city                     String
   country                  String

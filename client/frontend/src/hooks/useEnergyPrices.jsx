@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
 const useEnergyPrices = () => {
-    const URL = `https://hourlypricing.comed.com/api?type=currenthouraverage`
+    const URL = `https://cors-anywhere.herokuapp.com/https://hourlypricing.comed.com/api?type=currenthouraverage`
     const [priceInfo, setPriceInfo] = useState({loading: true})
 
     useEffect(() => {

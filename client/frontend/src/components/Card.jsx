@@ -57,7 +57,6 @@ const Card = ({ description, votes, username, id, posts, setPosts, title, diffic
           >
             <div className="border w-56 bg-slate-200 overflow-hidden">
               <img
-                
                 src={`https://source.unsplash.com/random/56×56/?${title}`}
                 className="object-cover w-46 h-46 border"
                 alt="image"

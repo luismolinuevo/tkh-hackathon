@@ -128,6 +128,7 @@ const Home = () => {
           {posts.map((post) => {
             return (
               <Card
+                title="Green houses"
                 key={post.id}
                 id={post.id}
                 description={post.description}

@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import axios from "axios";
 const Home = () => {
   const initialPosts = useLoaderData();
-  
+
   const [searchInput, setSearchInput] = useState("");
   const [posts, setPosts] = useState(initialPosts);
   const fakeData = [
@@ -54,63 +54,115 @@ const Home = () => {
   return (
     <>
       <div className="flex flex-col w-full px-20 py-10 gap-10">
-        <div className="flex flex-col ">
-          <input
+        <div className="flex flex-col border rounded-2xl bg-zinc-200 h-3/6">
+          {/* <input
             className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"
             type="text"
             value={searchInput}
             placeholder="Search for information!"
             onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <div className="flex mt-10 w-5/6 self-center p-10  gap-10 ">
-            <div className="flex flex-col  w-4/6  gap-5">
-              <div className="text-6xl">Find Sustainable Solutions for You</div>
-              <div className="text-3xl">
-                Brief mission statement describing the goal of the website,
-                uses, and why its important.
+          /> */}
+          <div className="flex flex-col self-center  p-3 gap-10 ">
+            <div className="flex gap-5">
+              <div className="text-6xl">
+                Transform the Future. Find Sustainable Solutions for You
               </div>
             </div>
-
-            <form className=" flex ms-auto flex-col  justify-end items-end w-2/6 gap-4 ">
-              <div className="">
-                <label htmlFor="location" className="text-2xl ">
-                  Location:{" "}
-                </label>
-                <input
-                  className="w-48 border h-10"
-                  type="text"
-                  name="location"
-                  // value=""
-                />
-              </div>
-              <div className="">
-                <label htmlFor="living-situation" className="text-2xl">
-                  Living Situation:{" "}
-                </label>
-                <select
-                  className="w-48 border h-10"
-                  name="living-situation"
-                  id="living-situation"
-                >
-                  <option value="urban">Urban</option>
-                  <option value="suburban">Suburban</option>
-                  <option value="rural">Rural</option>
-                </select>
-              </div>
-              <div className="">
-                <label htmlFor="type" className="text-2xl">
-                  Type:{" "}
-                </label>
-                <select className="w-48 border h-10" name="type" id="type">
-                  <option value="urban">Option 1</option>
-                  <option value="suburban">Option 2</option>
-                  <option value="rural">Option 3</option>
-                </select>
-              </div>
-              <button className="border p-2 px-3 rounded-3xl w-24">
-                Search
-              </button>
-            </form>
+            <div className="bg-slate-50 rounded-2xl overflow-hidden h-5/6">
+              {/* <form className=" flex ms-auto flex-col  justify-end items-end w-2/6 gap-4 ">
+                <div className="">
+                  <label htmlFor="location" className="text-2xl ">
+                    Location:{" "}
+                  </label>
+                  <input
+                    className="w-48 border h-10"
+                    type="text"
+                    name="location"
+                    // value=""
+                  />
+                </div>
+                <div className="">
+                  <label htmlFor="living-situation" className="text-2xl">
+                    Living Situation:{" "}
+                  </label>
+                  <select
+                    className="w-48 border h-10"
+                    name="living-situation"
+                    id="living-situation"
+                  >
+                    <option value="urban">Urban</option>
+                    <option value="suburban">Suburban</option>
+                    <option value="rural">Rural</option>
+                  </select>
+                </div>
+                <div className="">
+                  <label htmlFor="type" className="text-2xl">
+                    Type:{" "}
+                  </label>
+                  <select className="w-48 border h-10" name="type" id="type">
+                    <option value="urban">Option 1</option>
+                    <option value="suburban">Option 2</option>
+                    <option value="rural">Option 3</option>
+                  </select>
+                </div>
+                <button className="border p-2 px-3 rounded-3xl w-24">
+                  Search
+                </button>
+              </form> */}
+              <form className="flex flex-col px-20 py-10 gap-5">
+                <div className="flex flex-col gap-3">
+                  <label htmlFor="location" className="text-3xl">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    className="w-3/4 border p-2 rounded-3xl bg-green-background"
+                    placeholder="--enter city, state, and zipcode--"
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex flex-col gap-3">
+                    <label htmlFor="living-situation" className="text-2xl">
+                      Living Situation:{" "}
+                    </label>
+                    <select
+                      className="w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      name="living-situation"
+                      id="living-situation"
+                    >
+                      <option selected="selected">Please Select</option>
+                      <option value="urban">Urban</option>
+                      <option value="suburban">Suburban</option>
+                      <option value="rural">Rural</option>
+                      
+                    </select>
+                  </div>
+                  <div className="flex flex-col  gap-3">
+                    <label htmlFor="type" className="text-2xl">
+                      Type:{" "}
+                    </label>
+                    <select
+                      className="w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      name="type"
+                      id="type"
+                      
+                    >
+                      <option selected="selected">Please Select</option>
+                      <option className="" value="urban">
+                        Option 1
+                      </option>
+                      <option value="suburban">Option 2</option>
+                      <option value="rural">Option 3</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="flex justify-end">
+                  <button className="text-lg rounded-3xl border py-2 px-5 bg-blue-400 ">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
         <div className=" p-5">

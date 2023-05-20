@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 const NavAndFooter = () => {
   return (
-    <div>
+    <div class="h-full">
           <Navbar />
-          <main className="flex justify-center">
+          <main className="flex justify-center h-full">
               <Outlet />
           </main>
           {/* <div>This is the footer</div> */}

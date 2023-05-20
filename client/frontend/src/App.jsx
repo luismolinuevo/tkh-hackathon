@@ -2,15 +2,20 @@ import React from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+//template
+import NavAndFooter from "./templates/NavAndFooter";
+
+//loaders
+import { getPosts } from "./loaders";
+
 //components
 import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Login from "./pages/Login";
 import Posts from "./pages/Posts";
 import AiPage from "./pages/AiPage"
+import Incentives from "./pages/Incentives";
 
-//template
-import NavAndFooter from "./templates/NavAndFooter";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +26,7 @@ function App() {
         {
           path: "/",
           element: <Home />,
+          loader: getPosts
         },
         {
           path: "/form",
@@ -39,6 +45,10 @@ function App() {
           element: <AiPage/>
         }
       ],
+    },
+    {
+      path: "/incentives",
+      element: <Incentives />,
     },
   ]);
 

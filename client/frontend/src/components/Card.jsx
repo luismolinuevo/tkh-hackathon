@@ -45,13 +45,13 @@ const Card = ({ description, votes, username, id, posts, setPosts }) => {
     }
   };
 
-  console.log(likesStatus)
+  console.log(likesStatus);
   return (
     <>
       <div className="flex flex-col mt-10 gap-4">
         <div>
           <div
-            className={`flex border h-40 relative p-4 ${
+            className={`flex border bg-green-background h-40 relative p-4 ${
               isHidden ? "" : "border-b-0"
             }`}
           >
@@ -122,19 +122,39 @@ const Card = ({ description, votes, username, id, posts, setPosts }) => {
             </div>
             <div>
               <div className="text-3xl mt-4">Referred solutions</div>
-              <div className="flex mt-4 gap-4">
-                <div className="bg-slate-200 h-40 w-56">
-                  <img src="" alt="amazon image" />
-                </div>
-                <div className="bg-slate-200 h-40 w-56">
-                  <img src="" alt="amazon image" />
-                </div>
-                <div className="bg-slate-200 h-40 w-56">
-                  <img src="" alt="amazon image" />
-                </div>
-                <div className="bg-slate-200 h-40 w-56">
-                  <img src="" alt="amazon image" />
-                </div>
+              <div className="flex mt-4 gap-4 text-center">
+                <div>
+                  <div className="bg-slate-200 h-40 w-56 mb-3">
+                    <img src="" alt="amazon image" />
+                  </div>
+                  <a className="" href="https://www.amazon.com/" target="_blank">
+                    Amazon link
+                  </a>
+                </div>{" "}
+                <div>
+                  <div className="bg-slate-200 h-40 w-56 mb-3">
+                    <img src="" alt="amazon image" />
+                  </div>
+                  <a href="https://www.amazon.com/" target="_blank">
+                    Amazon link
+                  </a>
+                </div>{" "}
+                <div>
+                  <div className="bg-slate-200 h-40 w-56 mb-3">
+                    <img src="" alt="amazon image" />
+                  </div>
+                  <a href="https://www.amazon.com/" target="_blank">
+                    Amazon link
+                  </a>
+                </div>{" "}
+                <div>
+                  <div className="bg-slate-200 h-40 w-56 mb-3">
+                    <img src="" alt="amazon image" />
+                  </div>
+                  <a href="https://www.amazon.com/" target="_blank">
+                    Amazon link
+                  </a>
+                </div>{" "}
               </div>
             </div>
             <span

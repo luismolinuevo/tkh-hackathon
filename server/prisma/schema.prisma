@@ -25,7 +25,9 @@ model Post {
   cost                     String
   description              String
   implementationDifficulty String
-  location                 String
+  city                     String
+  country                  String
+  zipCode                  String
   livingSituation          String
   title                    String
 

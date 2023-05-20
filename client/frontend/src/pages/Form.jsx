@@ -26,16 +26,45 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <form className="w-[650px]" onSubmit={handleCreatePost}>
+        <h1>New Post</h1>
         <div className="flex">
-          <div className="w-[45%]">
+          <div className="w-[45%] flex flex-col mr-8">
             <label>Title</label>
-            <input type="text" />
+            <input type="text" className="border border-black" />
           </div>
-          <div className="w-[45%]">
-            <label>Cost</label>
-            <input type="text" />
+        </div>
+        <div className="flex gap-2">
+            <div className="flex flex-col">
+              <label>Country</label>
+              <input type="text" className="border border-black" />
+            </div>
+            <div className="flex flex-col">
+              <label>City</label>
+              <input type="text" className="border border-black" />
+            </div>
+            <div className="flex flex-col">
+              <label>Zip</label>
+              <input type="text" className="border border-black" />
+            </div>
+          </div>
+        <div>
+          <label>Description</label>
+          <p>
+            How has this solution helped you? What is it trying to solve? What
+            are its benefits?
+          </p>
+          <input type="text" className="h-[150px] border border-black w-full" />
+        </div>
+        <div className="flex">
+          <div className="w-[45%] flex-col mr-8">
+            <label>Cost of Implemation</label>
+            <input type="text" className="border border-black  " />
+          </div>
+          <div className="w-[45%] flex-col mr-8">
+            <label>This solution is good for</label>
+            <input type="text" className="border border-black " />
           </div>
         </div>
 

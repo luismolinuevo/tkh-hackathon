@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
-const Card = ({ description, votes, username }) => {
+const Card = ({ title, description, votes, username }) => {
   const [isHidden, setIsHidden] = useState("hidden");
   return (
     <>
       <div className="flex flex-col mt-10 gap-4">
         <div>
           <div
-            className={`flex border h-40 relative p-4 ${
+            className={`flex border relative p-4 ${
               isHidden ? "" : "border-b-0"
             }`}
           >
             <div className="border w-56 bg-slate-200">
-              <img src="" alt="image" />
+              <img src={`https://source.unsplash.com/random/56×56/?${title}`} className="object-fill w-46 h-46" alt="image" />
             </div>
             <div className="flex flex-col flex-1 px-5">
-              <div>Title: </div>
+              <div>Title: {title}</div>
               <div>Description: {description}</div>
-              <div>Recommendated Products</div>
+              <div>Recommended Products</div>
             </div>
             <div className="flex flex-col justify-between">
               <div className="flex gap-2">

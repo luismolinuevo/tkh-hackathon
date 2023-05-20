@@ -9,7 +9,7 @@ const useEnergyPrices = () => {
             const data = await response.json()
             setPriceInfo({
                 loading: false,
-                price: `${data[0]?.price} Cents/kHw`
+                price: `${data[0]?.price}`
             })
         }
 

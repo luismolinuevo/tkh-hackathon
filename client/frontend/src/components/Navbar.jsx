@@ -1,15 +1,22 @@
 import React, { useState } from "react";
+import useUserLocation from "../hooks/useUserLocation.jsx";
+import useWeatherInfo from "../hooks/useWeatherInfo.jsx";
+import useEnergyPrices from "../hooks/useEnergyPrices.jsx";
 
 const LoggedIn = true;
 
 const Navbar = () => {
+  const {city} = useUserLocation()
+  const {temperature, humidity} = useWeatherInfo(city)
+  const {price} = useEnergyPrices()
+
   return (
     <div>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="" className="flex items-center">
-            <img src="" className="h-8 mr-3" alt="TEMP LOGO" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+          <a href="" className="flex flex-col items-center">
+            <img src="/logo.jpg" className="h-12 w-16" alt="TEMP LOGO" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Team 9</span>
           </a>
           <button
             data-collapse-toggle="navbar-default"
@@ -33,7 +40,7 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
-          <div className="border-2 p-2">Information about current weather</div>
+          <div className="border-2 p-2">{city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw</div>
           <div
             className=" hidden w-full md:block md:w-auto"
             id="navbar-default"

@@ -7,7 +7,6 @@ const useWeatherInfo =(city) => {
     const [weatherInfo, setWeatherInfo] = useState({loading: true})
 
     useEffect(() => {
-        console.log('rendering...')
         if (!city) return
         const successCallback = (data) => {
             const {current: {temp_f: temperature, humidity}} = data

@@ -22,7 +22,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "form",
+          path: "/form",
           element: <Form />,
         },
         {

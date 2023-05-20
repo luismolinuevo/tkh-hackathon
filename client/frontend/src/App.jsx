@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Posts from "./pages/Posts";
 import AiPage from "./pages/AiPage"
 import Incentives from "./pages/Incentives";
+import Faves from "./pages/Favs"
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
         {
           path: "/askai",
           element: <AiPage/>
+        },
+        {
+          path: "/favs",
+          element: <Faves/>
         }
       ],
     },

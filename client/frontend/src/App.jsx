@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Login from "./pages/Login";
 import Posts from "./pages/Posts";
+import AiPage from "./pages/AiPage"
 
 //template
 import NavAndFooter from "./templates/NavAndFooter";
@@ -33,6 +34,10 @@ function App() {
           path: "/posts",
           element: <Posts />,
         },
+        {
+          path: "/askai",
+          element: <AiPage/>
+        }
       ],
     },
   ]);

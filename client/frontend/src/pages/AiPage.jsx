@@ -36,10 +36,21 @@ export default function AiPage() {
     }
   }
   return (
-    <div>
-        <input onChange={(e) => setSituationInput(e.target.value)}/>
+    <div className="w-full">
+      <div className="p-20 flex justify-center">
+        <input
+        type="text"
+          onChange={(e) => setSituationInput(e.target.value)}
+          className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"
+          placeholder="Enter situation. Ex: 'I live in Arizona. I have a large house."
+          
+        />
         <button onClick={onSubmit}>Ask</button>
+      </div>
+      <div>
+        {result}
+      </div>
     </div>
-  )
-
+  );
 }
+

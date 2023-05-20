@@ -35,6 +35,7 @@ model Post {
   userName  String //since we are faking it I wont have any real relations 
   // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   votes     Votes[]
+  recommendations Recommendations[]
   upvotes   Int     @default(0)
   downvotes Int     @default(0)
 
@@ -51,5 +52,13 @@ model Votes {
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 
   // @@index([userId])
+  @@index([postId])
+}
+model Recommendations{
+  id       Int    @id @unique @default(autoincrement())
+  recommendation String
+  postId Int
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
   @@index([postId])
 }

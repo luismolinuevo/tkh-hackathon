@@ -131,11 +131,7 @@ const Card = ({ description, votes, username, id, posts, setPosts }) => {
                   <div className="bg-slate-200 h-40 w-56 mb-3">
                     <img src="" alt="amazon image" />
                   </div>
-                  <a
-                    className=""
-                    href="https://www.amazon.com/"
-                    target="_blank"
-                  >
+                  <a className="" href="https://www.amazon.com/" target="_blank">
                     Amazon link
                   </a>
                 </div>{" "}

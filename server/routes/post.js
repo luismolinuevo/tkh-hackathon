@@ -13,12 +13,14 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  console.log(req.body)
   const createPost = await prisma.post.create({
     data: {
       cost: req.body.cost,
       title: req.body.title,
       implementationDifficulty: req.body.implementationDifficulty,
       country: req.body.country,
+      state: req.body.state,
       zipCode: req.body.zipCode,
       city: req.body.city,
       goodFor: req.body.goodFor,

@@ -137,7 +137,7 @@ const Home = () => {
                 setPosts={setPosts}
                 difficulty={post.implementationDifficulty}
                 livingSituation={post.livingSituation}
-                location={post.country}
+                location={post.state}
               />
             );
           })}

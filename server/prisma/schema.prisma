@@ -25,9 +25,12 @@ model Post {
   cost                     String
   description              String
   implementationDifficulty String
-  location                 String
+  city                     String
+  country                  String
+  zipCode                  String
   livingSituation          String
   title                    String
+  goodFor                  String
 
   userName  String //since we are faking it I wont have any real relations 
   // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)

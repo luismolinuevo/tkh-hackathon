@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Card from "../components/Card";
+import axios from "axios";
 const Home = () => {
+  const initialPosts = useLoaderData();
+  
   const [searchInput, setSearchInput] = useState("");
+  const [posts, setPosts] = useState(initialPosts);
   const fakeData = [
     {
+      id: 1,
       description: "asdjkoasdjasldkjasdklasjdkasd",
       upvotes: 1000,
       downvotes: 1,
       username: "Jack",
     },
     {
+      id: 2,
       description:
         "Sit incidunt tempore eos eius voluptas qui voluptatem dolorum eos eveniet ipsam? Et laborum sint id velit officiis id illum quia qui alias fugiat sit amet dolore non sequi libero.",
       upvotes: 1000,
@@ -17,6 +24,7 @@ const Home = () => {
       username: "Harry123",
     },
     {
+      id: 3,
       description:
         "Eos enim deleniti ut reprehenderit sunt aut facere consequatur qui culpa labore nam voluptas ipsam est iste molestiae. Sit itaque repellendus ut dolores odio aut ullam optio et officia iste et natus quam a magni nihil. Vel laudantium eveniet qui maxime tempore aut accusamus voluptatem a totam dolore sit eius aliquid. 33 aliquam dolor id quia tempora nam illo placeat sed officiis .",
       upvotes: 100,
@@ -24,6 +32,25 @@ const Home = () => {
       username: "Jordan12323",
     },
   ];
+
+  // useEffect(() => {
+  //   const getPosts = async () => {
+  //     try {
+  //       const response = await axios({
+  //         method: "get",
+  //         url: `http://localhost:3000/post/`,
+  //       });
+
+  //       console.log(response);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+
+  //   getPosts();
+  // });
+  console.log(initialPosts);
+
   return (
     <>
       <div className="flex flex-col w-full px-20 py-10 gap-10">
@@ -53,7 +80,7 @@ const Home = () => {
                   className="w-48 border h-10"
                   type="text"
                   name="location"
-                  value=""
+                  // value=""
                 />
               </div>
               <div className="">
@@ -91,36 +118,21 @@ const Home = () => {
             <div className="text-4xl">Recommendations</div>
             <div>Sort by ▼ </div>
           </div>
-          {/* Posts container */}
-          {/* <Card description={description} title={title} votes={upvotes >  downvotes ? upvotes - downvotes : downvotes - upvotes} /> */}
 
-          {/* {fakeData.map((post) => {
-            return (
-              <Card
-                description={post.description}
-                votes={
-                  post.upvotes > post.downvotes
-                    ? post.upvotes - post.downvotes
-                    : post.downvotes - post.upvotes
-                }
-                username={post.username}
-              />
-            );
-          })} */}
-          {fakeData
+          {posts
             .filter((post) =>
               post.description.toLowerCase().includes(searchInput)
             )
             .map((post) => {
               return (
                 <Card
+                  key={post.id}
+                  id={post.id}
                   description={post.description}
-                  votes={
-                    post.upvotes > post.downvotes
-                      ? post.upvotes - post.downvotes
-                      : post.downvotes - post.upvotes
-                  }
-                  username={post.username}
+                  votes={post.upvotes - post.downvotes}
+                  username={post.userName}
+                  posts={posts}
+                  setPosts={setPosts}
                 />
               );
             })}

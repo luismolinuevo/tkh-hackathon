@@ -1,5 +1,6 @@
 import express from "express";
 import postRouter from "./routes/post.js"
+import recommendationRouter from "./routes/recommend.js"
 import cors from "cors"
 import { Configuration, OpenAIApi } from "openai";
 
@@ -13,6 +14,7 @@ const openai = new OpenAIApi(configuration);
 app.use(express.json());
 
 app.use("/post", postRouter);
+app.use("/recommendation", recommendationRouter)
 
 app.post("/api/generate", async (req, res) => {
   if (!configuration.apiKey) {

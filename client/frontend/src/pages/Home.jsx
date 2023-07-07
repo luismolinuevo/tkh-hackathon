@@ -12,9 +12,9 @@ const Home = () => {
   const [livingSituation, setLivingSituation] = useState();
   const [difficulty, setDifficulty] = useState();
 
-  console.log(location, livingSituation, difficulty);
+  // console.log(location, livingSituation, difficulty);
 
-  console.log(initialPosts);
+  console.log(initialPosts[0]);
   const searchPost = (e) => {
     e.preventDefault();
     // const filteredPost = initialPosts.map(
@@ -24,14 +24,16 @@ const Home = () => {
     //     post.country.toLowerCase() === location.toLowerCase() &&
     //     post.livingSituation.toLowerCase() === livingSituation.toLowerCase()
     // );
-    const filteredPost = initialPosts.filter((post) =>
-   
-        post.country.toLowerCase() === location && 
-        post.livingSituation.toLowerCase() === livingSituation &&
-        post.implementationDifficulty.toLowerCase() === difficulty
+    const filteredPost = initialPosts.filter((post) => {
+      // console.log(post.state === location, post.livingSituation === livingSituation, post.implementationDifficulty === difficulty)
+      console.log(post.state.toLowerCase() === location.toLowerCase(), post.livingSituation.toLowerCase() === livingSituation.toLowerCase(), post.implementationDifficulty.toLowerCase() ===  difficulty.toLowerCase() )
+      return post.state.toLowerCase() === location.toLowerCase() &&
+        post.livingSituation.toLowerCase() === livingSituation.toLowerCase() &&
+        post.implementationDifficulty.toLowerCase() === difficulty.toLowerCase()
+    }
       
     );
-    console.log(filteredPost);
+    // console.log(filteredPost);
     setPosts(filteredPost);
   };
 

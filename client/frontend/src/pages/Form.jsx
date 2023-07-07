@@ -8,6 +8,7 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [goodFor, setGoodFor] = useState("");
@@ -15,12 +16,14 @@ const Form = () => {
   const [userName, setUserName] = useState("luismolinuevo");
 
   const handleCreatePost = async () => {
+    console.log(state)
     const createPost = axios.post("http://localhost:3000/post/", {
       implementationDifficulty: implementationDifficulty,
       cost: cost,
       title: title,
       description: description,
       country: country,
+      state: state,
       city: city,
       zipCode: zipCode,
       goodFor: goodFor,
@@ -30,6 +33,8 @@ const Form = () => {
 
     // console.log(res)
   };
+
+  console.log(state, city)
 
   return (
     <div className="mt-[120px]">
@@ -59,14 +64,39 @@ const Form = () => {
               <option value="rural">Rural</option>
             </select>
           </div>
+
+          <div className="w-[45%] flex flex-col mr-8">
+            <label htmlFor="difficulty" className="text-[25px]">
+              Difficulty:{" "}
+            </label>
+            <select
+              className="border border-black h-8"
+              name="difficulty"
+              id="difficulty"
+              onChange={(e) => setImplementationDifficulty(e.target.value)}
+            >
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
         </div>
         <div className="flex gap-2">
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label className="text-[28px]">Country</label>
             <input
               type="text"
               className="border border-black h-8"
               onChange={(e) => setCountry(e.target.value)}
+            />
+          </div> */}
+          <div className="flex flex-col">
+            <label className="text-[28px]">State</label>
+            <input
+              type="text"
+              className="border border-black h-8"
+              onChange={(e) => setState(e.target.value)}
+              value={state}
             />
           </div>
           <div className="flex flex-col">

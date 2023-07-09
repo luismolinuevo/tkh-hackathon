@@ -8,8 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        "green-background" : "#E1E9E3"
-      }
+        "green-background": "#459858",
+        "green-highlight": "#AEDA38",
+        "white-highlight": "#FFFFFF",
+      },
+      fontFamily: {
+        'poppins': ['Poppins'],
+     }
     },
   },
   plugins: [],

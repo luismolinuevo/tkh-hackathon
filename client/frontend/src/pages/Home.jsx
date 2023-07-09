@@ -33,7 +33,6 @@ const Home = () => {
     };
 
     function checkTrue(postVar, filterVar) {
-
       postVar.toLowerCase() === filterVar.toLowerCase();
     }
 
@@ -48,22 +47,26 @@ const Home = () => {
     // });
     const filteredPost = initialPosts.filter((post) => {
       if (city && post.state.toLowerCase() !== city.toLowerCase()) {
-        return false
+        return false;
       }
 
-      if (livingSituation && post.livingSituation.toLowerCase() !== livingSituation.toLowerCase()) {
-        return false
+      if (
+        livingSituation &&
+        post.livingSituation.toLowerCase() !== livingSituation.toLowerCase()
+      ) {
+        return false;
       }
 
-      if (difficulty && post.implementationDifficulty.toLowerCase() !== difficulty.toLowerCase()) {
-        return false
+      if (
+        difficulty &&
+        post.implementationDifficulty.toLowerCase() !== difficulty.toLowerCase()
+      ) {
+        return false;
       }
 
-      return true
+      return true;
 
       return (
-
-
         post.state.toLowerCase() === city.toLowerCase() &&
         post.livingSituation.toLowerCase() === livingSituation.toLowerCase() &&
         post.implementationDifficulty.toLowerCase() === difficulty.toLowerCase()
@@ -76,8 +79,11 @@ const Home = () => {
   console.log(location.split(", "));
   return (
     <>
-      <div className="flex flex-col w-full px-20 py-10 gap-10">
-        <div className="flex flex-col px-10 py-5 border rounded-2xl bg-zinc-200 h-4/7">
+      <div className="flex flex-col w-full font-poppins ">
+        <div
+          style={{ backgroundImage: "url('/leaf-background.jpg')" }}
+          className=" flex flex-col px-20 py-5  bg-zinc-200 "
+        >
           {/* <input
             className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"
             type="text"
@@ -85,17 +91,20 @@ const Home = () => {
             placeholder="Search for information!"
             onChange={(e) => setSearchInput(e.target.value)}
           /> */}
-          <div className="flex flex-col self-center w-full p-3 gap-10 ">
+          <div className="flex flex-col self-center w-full p-3 gap-10  ">
             <div className="flex gap-5">
-              <div className="text-6xl">
-                Transform the Future. Find Sustainable Solutions for You
+              <div className="w-full text-center text-6xl text-white-highlight    ">
+                Find Sustainable Solutions for Your Home
               </div>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl overflow-hidden h-5/6">
+            <div className=" backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200 rounded-2xl overflow-hidden h-5/6 ">
               <form className="flex flex-col px-20 py-10 gap-5">
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="location" className="text-3xl">
+                  <label
+                    htmlFor="location"
+                    className="text-3xl text-white-highlight"
+                  >
                     Location
                   </label>
                   <Autocomplete
@@ -103,17 +112,20 @@ const Home = () => {
                       types: ["street_number", "street_address"],
                       // types: ["(cities)"],
                     }}
-                    className="w-3/4 border p-2 rounded-3xl bg-green-background"
+                    className="w-3/4 border p-4 rounded-xl h-12 bg-slate-200"
                     apiKey={import.meta.env.VITE_GOOGLE_API}
                     onPlaceSelected={(place) => {
                       setLocation(place.formatted_address);
                     }}
-                    placeholder="--enter city, state, and zipcode--"
+                    placeholder="Enter Location"
                   />
                 </div>
                 <div className="flex gap-4">
                   <div className="flex flex-col gap-3 ">
-                    <label htmlFor="living-situation" className="text-2xl">
+                    <label
+                      htmlFor="living-situation"
+                      className="text-2xl text-white-highlight"
+                    >
                       Living Situation:{" "}
                     </label>
                     <select
@@ -129,7 +141,10 @@ const Home = () => {
                     </select>
                   </div>
                   <div className="flex flex-col  gap-3">
-                    <label htmlFor="type" className="text-2xl">
+                    <label
+                      htmlFor="type"
+                      className="text-2xl text-white-highlight"
+                    >
                       Difficulty:{" "}
                     </label>
                     <select
@@ -148,7 +163,7 @@ const Home = () => {
                 </div>
                 <div className="flex justify-end">
                   <button
-                    className="text-lg rounded-3xl border py-2 px-5 bg-blue-400 "
+                    className="text-lg rounded-3xl  py-2 px-5 bg-green-background text-white-highlight"
                     onClick={(e) => searchPost(e)}
                   >
                     Submit
@@ -158,9 +173,16 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className=" p-5">
-          <div className="flex justify-between items-center">
-            <div className="text-4xl">Recommendations</div>
+        <div
+          // style={{ backgroundImage: "url('/minimalist-leaf.jpg')" }}
+          className=" px-20 "
+        >
+          <div
+            style={{ backgroundImage: "url('/minimalist-leaf.jpg')" }}
+            className="hidden md:block md:absolute w-[1000px] h-[382px] right-0"
+          ></div>
+          <div className="flex justify-between items-center py-8">
+            <div className="text-4xl font-semibold z-10">Popular</div>
             <div>Sort by ▼ </div>
           </div>
 
@@ -169,23 +191,25 @@ const Home = () => {
               post.description.toLowerCase().includes(searchInput)
           ) */}
           {/* {console.log(posts[0].id)} */}
-          {posts.map((post) => {
-            return (
-              <Card
-                title="Green houses"
-                key={post.id}
-                id={post.id}
-                description={post.description}
-                votes={post.upvotes - post.downvotes}
-                username={post.userName}
-                posts={posts}
-                setPosts={setPosts}
-                difficulty={post.implementationDifficulty}
-                livingSituation={post.livingSituation}
-                location={post.state}
-              />
-            );
-          })}
+          <div className="flex gap-16 rounded-lg">
+            {posts.map((post) => {
+              return (
+                <Card
+                  title="Green houses"
+                  key={post.id}
+                  id={post.id}
+                  description={post.description}
+                  votes={post.upvotes - post.downvotes}
+                  username={post.userName}
+                  posts={posts}
+                  setPosts={setPosts}
+                  difficulty={post.implementationDifficulty}
+                  livingSituation={post.livingSituation}
+                  location={post.state}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

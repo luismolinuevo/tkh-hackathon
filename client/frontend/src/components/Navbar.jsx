@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useUserLocation from "../hooks/useUserLocation.jsx";
 import useWeatherInfo from "../hooks/useWeatherInfo.jsx";
 import useEnergyPrices from "../hooks/useEnergyPrices.jsx";
+import { NavLink } from "react-router-dom";
 
 const LoggedIn = true;
 
@@ -12,11 +13,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-white border-gray-200 ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="" className="flex flex-col items-center">
-            <img src="/logo.jpg" className="h-12 w-16" alt="TEMP LOGO" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Team 9</span>
+      <nav className="bg-white border border-rose-50 font-poppins">
+        <div className="flex justify-between items-center m-10 mb-0 ">
+          <a href="" className="flex items-center">
+            <img src="/recycle.svg" className="h-[88px] w-[88px]" alt="TEMP LOGO" />
+            <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">Bloomin</span>
           </a>
           <button
             data-collapse-toggle="navbar-default"
@@ -42,35 +43,35 @@ const Navbar = () => {
           </button>
           <div className="border-2 p-2">{city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw</div>
           <div
-            className=" hidden w-full md:block md:w-auto"
+            className=" hidden w-full md:block md:w-auto h-full"
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className=" p-4 flex gap-8 text-lg font-semibold justify-center align-center">
               <li>
-                <a
-                  href="/"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                <NavLink
+                  to="/"
+                  className=" focus:text-green-highlight"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="/posts"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                <NavLink
+                  to="/posts"
+                  className="focus:text-green-highlight"
                 >
                   Browse
-                </a>
+                </NavLink>
               </li>
               {LoggedIn && (
                 <li>
-                  <a
-                    href="/form"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  <NavLink
+                    to="/form"
+                    className="focus:text-green-highlight"
                   >
                     Form
-                  </a>
+                  </NavLink>
                 </li>
               )}
               {/* <li>

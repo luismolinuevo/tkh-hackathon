@@ -2,41 +2,78 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "../components/Card";
 import axios from "axios";
+import human from "humanparser";
+import Autocomplete from "react-google-autocomplete";
+import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 const Home = () => {
+  const fullName = "Mr. William R. Hearst, III";
+  const attrs = human.parseName(fullName);
+
   const initialPosts = useLoaderData();
 
   const [searchInput, setSearchInput] = useState("");
   const [posts, setPosts] = useState(initialPosts);
 
-  const [location, setLocation] = useState();
-  const [livingSituation, setLivingSituation] = useState();
-  const [difficulty, setDifficulty] = useState();
+  const [location, setLocation] = useState("");
+  const [livingSituation, setLivingSituation] = useState("");
+  const [difficulty, setDifficulty] = useState("");
 
   // console.log(location, livingSituation, difficulty);
-
-  console.log(initialPosts[0]);
+  // console.log(human.parseAddress("3215 Coney Island Ave, Brooklyn, NY 11235, USA"));
+  // console.log(initialPosts[0]);
   const searchPost = (e) => {
     e.preventDefault();
-    // const filteredPost = initialPosts.map(
-    //   (post) =>
-    //     post.implementationDifficulty.toLowerCase() ===
-    //       difficulty.toLowerCase() &&
-    //     post.country.toLowerCase() === location.toLowerCase() &&
-    //     post.livingSituation.toLowerCase() === livingSituation.toLowerCase()
-    // );
+    const city = location ? location.split(", ")[1] : "";
+    let filter;
+
+    const propsToFilter = {
+      location,
+      livingSituation,
+      difficulty,
+    };
+
+    function checkTrue(postVar, filterVar) {
+
+      postVar.toLowerCase() === filterVar.toLowerCase();
+    }
+
+    if (location) {
+    }
+    // const filteredPost = initialPosts.filter((post) => {
+    //   return (
+    //     post.state.toLowerCase() === city.toLowerCase() &&
+    //     post.livingSituation.toLowerCase() === livingSituation.toLowerCase() &&
+    //     post.implementationDifficulty.toLowerCase() === difficulty.toLowerCase()
+    //   );
+    // });
     const filteredPost = initialPosts.filter((post) => {
-      // console.log(post.state === location, post.livingSituation === livingSituation, post.implementationDifficulty === difficulty)
-      console.log(post.state.toLowerCase() === location.toLowerCase(), post.livingSituation.toLowerCase() === livingSituation.toLowerCase(), post.implementationDifficulty.toLowerCase() ===  difficulty.toLowerCase() )
-      return post.state.toLowerCase() === location.toLowerCase() &&
+      if (city && post.state.toLowerCase() !== city.toLowerCase()) {
+        return false
+      }
+
+      if (livingSituation && post.livingSituation.toLowerCase() !== livingSituation.toLowerCase()) {
+        return false
+      }
+
+      if (difficulty && post.implementationDifficulty.toLowerCase() !== difficulty.toLowerCase()) {
+        return false
+      }
+
+      return true
+
+      return (
+
+
+        post.state.toLowerCase() === city.toLowerCase() &&
         post.livingSituation.toLowerCase() === livingSituation.toLowerCase() &&
         post.implementationDifficulty.toLowerCase() === difficulty.toLowerCase()
-    }
-      
-    );
+      );
+    });
     // console.log(filteredPost);
     setPosts(filteredPost);
   };
 
+  console.log(location.split(", "));
   return (
     <>
       <div className="flex flex-col w-full px-20 py-10 gap-10">
@@ -54,16 +91,23 @@ const Home = () => {
                 Transform the Future. Find Sustainable Solutions for You
               </div>
             </div>
+
             <div className="bg-slate-50 rounded-2xl overflow-hidden h-5/6">
               <form className="flex flex-col px-20 py-10 gap-5">
                 <div className="flex flex-col gap-3">
                   <label htmlFor="location" className="text-3xl">
                     Location
                   </label>
-                  <input
-                    onChange={(e) => setLocation(e.target.value)}
-                    type="text"
+                  <Autocomplete
+                    options={{
+                      types: ["street_number", "street_address"],
+                      // types: ["(cities)"],
+                    }}
                     className="w-3/4 border p-2 rounded-3xl bg-green-background"
+                    apiKey={import.meta.env.VITE_GOOGLE_API}
+                    onPlaceSelected={(place) => {
+                      setLocation(place.formatted_address);
+                    }}
                     placeholder="--enter city, state, and zipcode--"
                   />
                 </div>
@@ -95,9 +139,7 @@ const Home = () => {
                       onChange={(e) => setDifficulty(e.target.value)}
                     >
                       <option selected="selected">Please Select ▼</option>
-                      <option className="" value="urban">
-                        Option 1
-                      </option>
+
                       <option value="easy">Easy</option>
                       <option value="medium">Medium</option>
                       <option value="hard">Hard</option>

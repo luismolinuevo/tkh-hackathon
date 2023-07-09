@@ -45,7 +45,7 @@ const Card = ({ description, votes, username, id, posts, setPosts, title, diffic
     }
   };
 
-  console.log(likesStatus);
+  // console.log(likesStatus);
   return (
     <>
       <div className="flex flex-col mt-10 gap-4">

@@ -48,7 +48,7 @@ function App() {
           element: <AiPage/>
         },
         {
-          path: "/favs",
+          path: "/favorites",
           element: <Faves/>
         },
         {

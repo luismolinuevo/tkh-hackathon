@@ -7,17 +7,23 @@ import { NavLink } from "react-router-dom";
 const LoggedIn = true;
 
 const Navbar = () => {
-  const {city} = useUserLocation()
-  const {temperature, humidity} = useWeatherInfo(city)
-  const {price} = useEnergyPrices()
+  const { city } = useUserLocation();
+  const { temperature, humidity } = useWeatherInfo(city);
+  const { price } = useEnergyPrices();
 
   return (
     <div>
       <nav className="bg-white border border-rose-50 font-poppins">
         <div className="flex justify-between items-center m-10 mb-0 ">
           <a href="" className="flex items-center">
-            <img src="/recycle.svg" className="h-[88px] w-[88px]" alt="TEMP LOGO" />
-            <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">Bloomin</span>
+            <img
+              src="/recycle.svg"
+              className="h-[88px] w-[88px]"
+              alt="TEMP LOGO"
+            />
+            <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">
+              Bloomin
+            </span>
           </a>
           <button
             data-collapse-toggle="navbar-default"
@@ -41,7 +47,9 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
-          <div className="border-2 p-2">{city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw</div>
+          <div className="border-2 p-2">
+            {city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw
+          </div>
           <div
             className=" hidden w-full md:block md:w-auto h-full"
             id="navbar-default"
@@ -57,19 +65,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/posts"
-                  className="focus:text-green-highlight"
-                >
+                <NavLink to="/posts" className="focus:text-green-highlight">
                   Browse
                 </NavLink>
               </li>
               {LoggedIn && (
                 <li>
-                  <NavLink
-                    to="/form"
-                    className="focus:text-green-highlight"
-                  >
+                  <NavLink to="/form" className="focus:text-green-highlight">
                     Form
                   </NavLink>
                 </li>
@@ -83,21 +85,28 @@ const Navbar = () => {
                 </a>
               </li> */}
               <li>
-                <a href="favs">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="css-i6dzq1"
-                >
-                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                </svg>
+                <a href="/favorites">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="css-i6dzq1"
+                  >
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  </svg>
                 </a>
+              </li>
+              <li>
+                <NavLink
+                  className="bg-green-background w-10 h-10 rounded-full"
+                  to="/profile"
+                >Temp Profile Nav</NavLink>
+                {/* <div className="bg-green-background w-10 h-10 rounded-full"></div> */}
               </li>
               <li>
                 {LoggedIn ? (
@@ -116,9 +125,7 @@ const Navbar = () => {
         </div>
       </nav>
     </div>
-    
   );
-
 };
 
 export default Navbar;

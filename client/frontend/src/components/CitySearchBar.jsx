@@ -4,11 +4,11 @@ const combinedCitiesArray = cities.join(",").split(", ");
 const citiesList = combinedCitiesArray.filter((city) => city !== "");
 
 const CitySearchBar = (props) => {
-  const [searchValue, setSearchValue] = useState("");
+//   const [searchValue, setSearchValue] = useState("");
   const [showItems, setShowItems] = useState(false);
   const dropdownItems = citiesList
     .filter((city) => {
-      const searchCity = searchValue.toLowerCase();
+      const searchCity = props.searchValue.toLowerCase();
       return searchCity && city.toLowerCase().startsWith(searchCity);
     })
     .slice(0, 5)
@@ -16,7 +16,7 @@ const CitySearchBar = (props) => {
       return (
         <div
           onClick={() => {
-            setSearchValue(city);
+           props.setSearchValue(city);
             setShowItems(false);
           }}
           className="px-2 py-1 dropdown-items hover:bg-zinc-300"
@@ -37,9 +37,9 @@ const CitySearchBar = (props) => {
                   className={props.inputStyle}
           type="text"
           name="city"
-          value={searchValue}
+          value={props.searchValue}
           onChange={(e) => {
-            setSearchValue(e.target.value)
+            props.setSearchValue(e.target.value)
             setShowItems(true);
           }}
         />

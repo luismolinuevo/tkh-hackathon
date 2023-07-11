@@ -11,40 +11,40 @@ export const HouseIcon = (props) => {
       <path
         d="M1.32275 21.75H26.6772"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2.52612 21.75L2.58951 9.08356C2.58951 8.44129 2.95715 7.83066 3.56566 7.43055L12.4398 1.69222C13.3526 1.10259 14.6328 1.10259 15.5583 1.69222L24.4325 7.42001C25.0537 7.82012 25.4086 8.43076 25.4086 9.08356V21.75"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinejoin="round"
       />
       <path
         d="M15.2681 16.4856H12.7326C11.6804 16.4856 10.8311 17.191 10.8311 18.065V21.7501H17.1697V18.065C17.1697 17.191 16.3203 16.4856 15.2681 16.4856Z"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinejoin="round"
       />
       <path
         d="M10.831 13.0633H8.29556C7.59831 13.0633 7.02783 12.5895 7.02783 12.0104V10.4311C7.02783 9.85198 7.59831 9.37817 8.29556 9.37817H10.831C11.5283 9.37817 12.0987 9.85198 12.0987 10.4311V12.0104C12.0987 12.5895 11.5283 13.0633 10.831 13.0633Z"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinejoin="round"
       />
       <path
         d="M19.705 13.0633H17.1696C16.4723 13.0633 15.9019 12.5895 15.9019 12.0104V10.4311C15.9019 9.85198 16.4723 9.37817 17.1696 9.37817H19.705C20.4023 9.37817 20.9728 9.85198 20.9728 10.4311V12.0104C20.9728 12.5895 20.4023 13.0633 19.705 13.0633Z"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinejoin="round"
       />
       <path
         d="M22.8748 5.95656L22.8368 2.79785H17.2588"
         stroke={props.color}
-        stroke-miterlimit="10"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -57,11 +57,11 @@ export const DifficultyIcon = (props) => {
       width="24"
       height="24"
       stroke={props.color}
-      stroke-width="2"
+      strokeWidth="2"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="css-i6dzq1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="css-i6dzq1"
     >
       <line x1="12" y1="20" x2="12" y2="10"></line>
       <line x1="18" y1="20" x2="18" y2="4"></line>
@@ -98,11 +98,11 @@ export const ImageIcon = (props) => {
       width="24"
       height="24"
       stroke="currentColor"
-      stroke-width="2"
+      strokeWidth="2"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="css-i6dzq1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="css-i6dzq1"
     >
       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
       <circle cx="8.5" cy="8.5" r="1.5"></circle>

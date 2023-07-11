@@ -16,16 +16,16 @@ const Profile = () => {
   const handleCreatePost = async () => {
     console.log(state);
     const createPost = axios.post("http://localhost:3000/post/", {
-      implementationDifficulty: implementationDifficulty,
-      cost: cost,
-      title: title,
-      description: description,
-      country: country,
-      state: state,
-      city: city,
-      zipCode: zipCode,
-      goodFor: goodFor,
-      livingSituation: livingSituation,
+      implementationDifficulty: postValues.difficulty,
+      cost: postValues.cost,
+      title: postValues.title,
+      description: postValues.description,
+      // country: country,
+      // state: state,
+      city: searchValue,
+      // zipCode: zipCode,
+      // goodFor: goodFor,
+      livingSituation: postValues.livingSituation,
       userName: userName,
     });
 
@@ -45,9 +45,9 @@ const Profile = () => {
     setPostValues({...postValues, [e.target.name]: e.target.value})
   }
   
-  const [searchValue, setSearchValue] = useState("s");
+  const [searchValue, setSearchValue] = useState("");
   const [showItems, setShowItems] = useState(false);
-
+  console.log(searchValue)
   return (
     <div className="flex flex-col   relative font-poppins w-full  grow px-20">
       <div
@@ -94,6 +94,8 @@ const Profile = () => {
                 </div>
                 <CitySearchBar
                   // titleColor = "text-white"
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
                   labelInputGap="gap-2"
                   labelStyling="text-xl font-semibold"
                   inputStyle="border border-zinc-400 w-[280px]"
@@ -119,32 +121,9 @@ const Profile = () => {
                   cols="30"
                   rows="5"
                   onChange={changeHandler}
-                  // maxLength={150}
                 ></textarea>
               </div>
               <div className="flex gap-8">
-                {/* <div className="flex flex-col gap-2">
-                  <label htmlFor="cost" className="text-xl font-semibold">
-                    Cost of Implementation
-                  </label>
-                  <input
-                    className="border border-zinc-400 w-[280px]"
-                    type="text"
-                    name="cost"
-                    id="cost"
-                  />
-                </div> */}
-                {/* <div className="flex flex-col gap-2">
-                  <label htmlFor="solution" className="text-xl font-semibold">
-                    This solution is good for
-                  </label>
-                  <input
-                    className="border border-zinc-400 w-[280px]"
-                    type="text"
-                    name="solution"
-                    id="solution"
-                  />
-                </div> */}
                 <div className="flex flex-col gap-2">
                   <label htmlFor="cost" className="text-xl font-semibold">
                     Cost of Implementation

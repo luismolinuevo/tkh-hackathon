@@ -12,13 +12,18 @@ export default {
         "green-highlight": "#AEDA38",
         "white-highlight": "#FFFFFF",
         "bright-green-highlight": "#41D261",
-        "dull-green-background": "rgba(204, 219, 207, 0.40)"
+        "dull-green-background": "rgba(204, 219, 207, 0.40)",
       },
       fontFamily: {
-        'poppins': ['Poppins'],
-     }
+        poppins: ["Poppins"],
+      },
+      screens: {
+        smmd: "704px",
+        mdlg: "896px",
+       
+      },
     },
+   
   },
   plugins: [],
-}
-
+};

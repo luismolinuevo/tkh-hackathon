@@ -96,16 +96,18 @@ const Home = () => {
             </div>
 
             <div className=" backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200 rounded-2xl overflow-hidden h-5/6 ">
-              <form className="flex flex-col px-20 py-10 gap-5">
+              <form className="flex flex-col justify-center items-center md:items-start p-5 sm:px-20 sm:py-10 gap-5">
                 <CitySearchBar
                    searchValue={searchValue}
-                   setSearchValue={setSearchValue}
+                  setSearchValue={setSearchValue}
+                  containerStyling="justify-center items-center md:items-start "
                   labelInputGap="gap-3"
-                  labelStyling="text-3xl text-white-highlight"
-                  inputStyle="w-3/4 border p-4 rounded-xl h-12 bg-slate-200"
+                  labelStyling="text-3xl  text-white-highlight"
+                  inputStyle="  md:w-3/4 border p-4 rounded-xl h-12 bg-slate-200"
                   dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4 "
+                  placeholder="Ex. New York City"
                 />
-                <div className="flex gap-4">
+                <div className="flex flex-col  md:flex-row gap-4 ">
                   <div className="flex flex-col gap-3 ">
                     <label
                       htmlFor="living-situation"
@@ -125,7 +127,7 @@ const Home = () => {
                       <option value="rural">Rural</option>
                     </select>
                   </div>
-                  <div className="flex flex-col  gap-3">
+                  <div className="flex flex-col   gap-3">
                     <label
                       htmlFor="type"
                       className="text-2xl text-white-highlight"
@@ -146,7 +148,7 @@ const Home = () => {
                     </select>
                   </div>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex  mt-3 ">
                   <button
                     className="text-lg rounded-3xl  py-2 px-5 bg-green-background text-white-highlight"
                     onClick={(e) => searchPost(e)}

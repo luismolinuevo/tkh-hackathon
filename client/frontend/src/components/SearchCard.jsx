@@ -17,12 +17,7 @@ const SearchCard = ({
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
 
-  const moneySigns = [];
-  for (let i = 0; i < parseInt(cost); i++) {
-    moneySigns.push("$");
-  }
 
-  console.log(moneySigns.join(""));
 
   const updateLike = async (type, username, id) => {
     try {
@@ -69,43 +64,36 @@ const SearchCard = ({
       <div className="flex flex-col gap-4 py-6  border-b-2">
         <div>
           <div
-            className={`flex  relative  bg-white-highlight z-10 p-4 ${
+            className={`flex  flex-col mdlg:flex-row relative  bg-white-highlight z-10 p-4 ${
               isHidden ? "" : "border-b-0"
             }`}
           >
-            <div className="border bg-slate-200 w-[250px] h-[200px] overflow-hidden">
+            <div className=" bg-slate-200 min-w-[250px] mdlg:w-[250px] h-[200px] overflow-hidden">
               <img
                 src={`https://source.unsplash.com/random/56×56/?${title}`}
-                className=" h-full w-full object-cover border"
+                className=" h-full w-full object-cover border "
                 alt="image"
               />
             </div>
-            <div className="flex flex-col flex-1 px-5">
-              {console.log(typeof parseInt(cost))}
+            <div className="   justify-center items-center   flex flex-col flex-1 py-3 lg:items-start lg:ms-3">
               <div>Title: {title}</div>
               <div>Description: {description}</div>
               <div>Recommended Products</div>
-              <div className="flex gap-3 mt-auto justify-between">
-                <div>
-                  <span className="cost-sign text-3xl family-inter">
-                    {moneySigns.join("")}
-                  </span>
-                  {/* <MoneyIcon /> */}
-                </div>
-                <div className="flex gap-3 me-3">
-                  <div className="flex gap-2  capitalize border bg-white-highlight shadow-md   rounded-xl px-3 py-2">
+              <div className="flex gap-3 mt-auto justify-center items-center lg:justify-start w-100 ">
+                <div className=" gap-3 grid text-sm  grid-cols-2 sm:grid-cols-2 lg:grid-cols-4   xl:w-full  lg:mb-3 mt-2">
+                  <div className=" flex text-center justify-center items-center gap-2  capitalize border bg-white-highlight shadow-md   rounded-xl px-3 py-2">
                     <HouseIcon color="#41D261" />
                     {location}
                   </div>
-                  <div className="flex gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
+                  <div className=" flex text-center justify-center items-center gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
                     <DifficultyIcon color="#41D261" />
                     {difficulty}
                   </div>
-                  <div className="flex gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
+                  <div className=" flex text-center justify-center items-center gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
                     <PeopleIcon color="#41D261" />
                     {livingSituation}
                   </div>
-                  <div className="flex gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
+                  <div className=" flex text-center justify-center items-center gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
                     <MoneyIcon color="#41D261" />
                     {cost}
                   </div>

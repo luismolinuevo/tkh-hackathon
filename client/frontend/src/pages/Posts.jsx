@@ -13,7 +13,7 @@ const Posts = () => {
   return (
     <>
       <div className="post-container relative  flex flex-col w-full h-full font-poppins ">
-        <div className=" flex flex-col px-20 py-5   ">
+        <div className=" flex flex-col px-20 py-5">
           {/* <input
             className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"
             type="text"
@@ -36,12 +36,12 @@ const Posts = () => {
                     setSearchValue={setSearchValue}
                     labelInputGap="gap-3"
                     labelStyling="text-3xl"
-                    inputStyle="w-3/4 border p-4 rounded-xl h-12 bg-dull-green-background"
+                    inputStyle="md:w-3/4 border p-4 rounded-xl h-12 bg-dull-green-background"
                     dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4"
                     placeholder="Enter City"
                   />
                 </div>
-                <div className="flex gap-4 text-black">
+                <div className="flex flex-col md:flex-row gap-4 text-black">
                   <div className="flex flex-col gap-3 ">
                     <label htmlFor="living-situation" className="text-2xl ">
                       Living Situation:{" "}
@@ -76,7 +76,7 @@ const Posts = () => {
                     </select>
                   </div>
                 </div>
-                <div className="flex justify-end">
+                <div className="flex justify-start md:justify-end mt-3">
                   <button
                     className="text-lg rounded-3xl  py-2 px-5 bg-green-background text-white-highlight"
                     onClick={(e) => searchPost(e)}
@@ -100,7 +100,7 @@ const Posts = () => {
             <div className="text-4xl font-semibold z-10 text-green-background">
               Recommended
             </div>
-            <div>Sort by ▼ </div>
+            {/* <div>Sort by ▼ </div> */}
           </div>{" "}
           <div className="flex flex-col  rounded-lg">
             {posts.map((post) => {

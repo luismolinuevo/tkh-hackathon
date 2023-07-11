@@ -35,7 +35,7 @@ const Profile = () => {
   const [postValues, setPostValues] = useState({
     title: "",
     description: "",
-    cost: "inexpensive",
+    cost: "cheap",
     livingSituation: "urban",
     difficulty:"easy",
 
@@ -134,7 +134,7 @@ const Profile = () => {
                     id="cost"
                     onChange={changeHandler}
                   >
-                    <option value="inexpensive" selected>Inexpensive</option>
+                    <option value="cheap" selected>Cheap</option>
                     <option value="regular">Regular</option>
                     <option value="expensive">Expensive</option>
                   </select>

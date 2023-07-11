@@ -11,7 +11,8 @@ export default {
         "green-background": "#459858",
         "green-highlight": "#AEDA38",
         "white-highlight": "#FFFFFF",
-        "bright-green-highlight": "#41D261"
+        "bright-green-highlight": "#41D261",
+        "dull-green-background": "rgba(204, 219, 207, 0.40)"
       },
       fontFamily: {
         'poppins': ['Poppins'],

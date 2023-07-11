@@ -42,6 +42,7 @@ const CitySearchBar = (props) => {
             props.setSearchValue(e.target.value)
             setShowItems(true);
           }}
+          placeholder={props.placeholder}
         />
       </div>
       <div

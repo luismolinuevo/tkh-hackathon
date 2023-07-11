@@ -12,9 +12,17 @@ const SearchCard = ({
   difficulty,
   livingSituation,
   location,
+  cost,
 }) => {
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
+
+  const moneySigns = [];
+  for (let i = 0; i < parseInt(cost); i++) {
+    moneySigns.push("$");
+  }
+
+  console.log(moneySigns.join(""));
 
   const updateLike = async (type, username, id) => {
     try {
@@ -73,12 +81,15 @@ const SearchCard = ({
               />
             </div>
             <div className="flex flex-col flex-1 px-5">
+              {console.log(typeof parseInt(cost))}
               <div>Title: {title}</div>
               <div>Description: {description}</div>
               <div>Recommended Products</div>
               <div className="flex gap-3 mt-auto justify-between">
                 <div>
-                <span className="text-3xl family-inter">$</span>
+                  <span className="cost-sign text-3xl family-inter">
+                    {moneySigns.join("")}
+                  </span>
                   {/* <MoneyIcon /> */}
                 </div>
                 <div className="flex gap-3 me-3">
@@ -93,6 +104,10 @@ const SearchCard = ({
                   <div className="flex gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
                     <PeopleIcon color="#41D261" />
                     {livingSituation}
+                  </div>
+                  <div className="flex gap-2 capitalize border bg-white-highlight shadow-md  rounded-xl px-3 py-2">
+                    <MoneyIcon color="#41D261" />
+                    {cost}
                   </div>
                 </div>
               </div>

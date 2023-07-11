@@ -4,11 +4,12 @@ import { useLoaderData } from "react-router-dom";
 import SearchCard from "../components/SearchCard";
 import human from "humanparser";
 import Autocomplete from "react-google-autocomplete";
+import CitySearchBar from "../components/CitySearchBar";
 
 const Posts = () => {
   const initialPosts = useLoaderData();
   const [posts, setPosts] = useState(initialPosts);
-
+  const [searchValue, setSearchValue] = useState("");
   return (
     <>
       <div className="post-container relative  flex flex-col w-full h-full font-poppins ">
@@ -30,21 +31,14 @@ const Posts = () => {
             <div className=" backdrop-blur-xl backdrop-opacity-95  overflow-hidden h-5/6 ">
               <form className="flex flex-col gap-5">
                 <div className="flex flex-col gap-3">
-                  <label htmlFor="location" className="text-3xl text-black">
-                    Location
-                  </label>
-                  <Autocomplete
-                    options={{
-                      types: ["street_number", "street_address"],
-                      // types: ["(cities)"],
-                    }}
-                    className="w-3/4 border p-4 rounded-xl h-12"
-                    style={{ backgroundColor: "rgba(204, 219, 207, 0.40)" }}
-                    apiKey={import.meta.env.VITE_GOOGLE_API}
-                    onPlaceSelected={(place) => {
-                      setLocation(place.formatted_address);
-                    }}
-                    placeholder="Enter Location"
+                  <CitySearchBar
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                    labelInputGap="gap-3"
+                    labelStyling="text-3xl"
+                    inputStyle="w-3/4 border p-4 rounded-xl h-12 bg-dull-green-background"
+                    dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4"
+                    placeholder="Enter City"
                   />
                 </div>
                 <div className="flex gap-4 text-black">
@@ -112,7 +106,7 @@ const Posts = () => {
             {posts.map((post) => {
               return (
                 <SearchCard
-                  //         title="Green houses"
+                  title={post.title}
                   key={post.id}
                   id={post.id}
                   description={post.description}
@@ -122,7 +116,8 @@ const Posts = () => {
                   setPosts={setPosts}
                   difficulty={post.implementationDifficulty}
                   livingSituation={post.livingSituation}
-                  location={post.state}
+                  location={post.city}
+                  cost={post.cost}
                 />
               );
             })}

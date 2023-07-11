@@ -31,6 +31,7 @@ function Faves() {
         faves.map((post) => (
           <div className="mb-4" key={post.id}>
             <Card
+
               key={post.post.id}
               id={post.post.id}
               description={post.post.description}

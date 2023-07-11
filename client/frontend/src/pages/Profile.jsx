@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import SearchCard from "../components/SearchCard";
 import CitySearchBar from "../components/CitySearchBar";
 import { ImageIcon } from "../components/Icons";
-
+import axios from "axios";
 const Profile = () => {
   const initialPosts = useLoaderData();
   const [posts, setPosts] = useState(initialPosts);
@@ -14,7 +14,7 @@ const Profile = () => {
   }
 
   const handleCreatePost = async () => {
-    console.log(state);
+    // console.log(state);
     const createPost = axios.post("http://localhost:3000/post/", {
       implementationDifficulty: postValues.difficulty,
       cost: postValues.cost,
@@ -26,7 +26,7 @@ const Profile = () => {
       // zipCode: zipCode,
       // goodFor: goodFor,
       livingSituation: postValues.livingSituation,
-      userName: userName,
+      userName: "a default username",
     });
 
     // console.log(res)
@@ -35,9 +35,9 @@ const Profile = () => {
   const [postValues, setPostValues] = useState({
     title: "",
     description: "",
-    cost: "",
-    livingSituation: "",
-    difficulty:"",
+    cost: "inexpensive",
+    livingSituation: "urban",
+    difficulty:"easy",
 
   });
   console.log(postValues)
@@ -134,7 +134,7 @@ const Profile = () => {
                     id="cost"
                     onChange={changeHandler}
                   >
-                    <option value="inexpensive">Inexpensive</option>
+                    <option value="inexpensive" selected>Inexpensive</option>
                     <option value="regular">Regular</option>
                     <option value="expensive">Expensive</option>
                   </select>
@@ -152,7 +152,7 @@ const Profile = () => {
                     id="living-situation"
                     onChange={changeHandler}
                   >
-                    <option value="urban">Urban</option>
+                    <option value="urban" selected>Urban</option>
                     <option value="suburban">Suburban</option>
                     <option value="rural">Rural</option>
                   </select>
@@ -167,8 +167,8 @@ const Profile = () => {
                     id="difficulty"
                     onChange={changeHandler}
                   >
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
+                    <option value="easy" >Easy</option>
+                    <option value="medium" selected>Medium</option>
                     <option value="hard">Hard</option>
                   </select>
                 </div>
@@ -179,7 +179,7 @@ const Profile = () => {
                 <ImageIcon />
                 Upload a Photo
               </button>
-              <button className="bg-green-background rounded-3xl px-4 py-2 text-white">
+              <button onClick={handleCreatePost} className="bg-green-background rounded-3xl px-4 py-2 text-white">
                 Submit
               </button>
             </footer>
@@ -200,7 +200,7 @@ const Profile = () => {
               setPosts={setPosts}
               difficulty={post.implementationDifficulty}
               livingSituation={post.livingSituation}
-              location={post.state}
+              location={post.city}
             />
           );
         })}

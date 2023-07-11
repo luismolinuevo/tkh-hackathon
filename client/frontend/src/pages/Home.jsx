@@ -88,13 +88,6 @@ const Home = () => {
           style={{ backgroundImage: "url('/leaf-background.jpg')" }}
           className=" flex flex-col px-20 py-5  bg-zinc-200 "
         >
-          {/* <input
-            className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"
-            type="text"
-            value={searchInput}
-            placeholder="Search for information!"
-            onChange={(e) => setSearchInput(e.target.value)}
-          /> */}
           <div className="flex flex-col self-center w-full p-3 gap-10  ">
             <div className="flex gap-5">
               <div className="w-full text-center text-6xl text-white-highlight    ">

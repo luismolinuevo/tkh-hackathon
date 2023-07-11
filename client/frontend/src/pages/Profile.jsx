@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SearchCard from "../components/SearchCard";
-import Navbar from "../components/Navbar";
-
-import cities from "../../cities.jsx";
-const combinedCitiesArray = cities.join(",").split(", ");
-const citiesList = combinedCitiesArray.filter((city) => city !== "");
-
+import CitySearchBar from "../components/CitySearchBar";
 import { ImageIcon } from "../components/Icons";
+
 const Profile = () => {
   const initialPosts = useLoaderData();
   const [posts, setPosts] = useState(initialPosts);
-
   const [showModal, setShowModal] = useState(true);
 
   function toggleModal() {
     setShowModal(!showModal);
-    console.log("toggled");
   }
 
   const handleCreatePost = async () => {
@@ -53,28 +47,7 @@ const Profile = () => {
   
   const [searchValue, setSearchValue] = useState("s");
   const [showItems, setShowItems] = useState(false);
-  const dropdownItems = citiesList
-    .filter((city) => {
-      const searchCity = searchValue.toLowerCase();
-      // console.log(searchCity)
-      return searchCity && city.toLowerCase().startsWith(searchCity);
-    })
-    .slice(0, 5)
-    .map((city) => {
-      return (
-        <div
-          onClick={() => {
-    
-            setSearchValue(city);
-            setShowItems(false);
-          }}
-          className="px-2 py-1 dropdown-items hover:bg-zinc-300"
-          key={city}
-        >
-          {city}
-        </div>
-      );
-    });
+
   return (
     <div className="flex flex-col border border-rose-950  relative font-poppins w-full  grow px-20">
       <div
@@ -119,56 +92,13 @@ const Profile = () => {
                     onChange={changeHandler}
                   />
                 </div>
-
-                <div className="flex flex-col gap-2 relative">
-                  <div className="flex flex-col gap-2">
-                    <label className="text-xl font-semibold" htmlFor="title">
-                      City
-                    </label>
-                    <input
-                      className="border border-zinc-400 w-[280px] "
-                      type="text"
-                      name="city"
-                      value={searchValue}
-                      onChange={(e) => {
-                        changeHandler
-                        setShowItems(true);
-                      }}
-                    />
-                  </div>
-                  <div
-                    className={`
-                    dropdown absolute top-[60px] z-10 bg-white  w-[280px] 
-                    ${
-                      dropdownItems.length > 0 && showItems
-                        ? "border border-zinc-400 "
-                        : ""
-                    }`}
-                  >
-                    {/* {citiesList
-                    .filter((city) => {
-                      const searchCity = searchValue.toLowerCase();
-                      // console.log(searchCity)
-                      return (
-                        searchCity && city.toLowerCase().startsWith(searchCity)
-                      );
-                    })
-                    .slice(0, 5)
-                    .map((city) => {
-                      return (
-                        <div
-                          onClick={() => setSearchValue(city)}
-                          className="px-2 py-1 dropdown-item hover:bg-zinc-300 "
-                          key={city}
-                        >
-                          {city}
-                        </div>
-                      );
-                    })} */}
-                    {showItems ? dropdownItems : ""}
-                  </div>
-                </div>
+                <CitySearchBar
+                  // titleColor = "text-white"
+                  inputStyle="border border-zinc-400 w-[280px]"
+                  dropdownStyle="dropdown absolute top-[60px] z-10 bg-white  w-[280px] "
+                />
               </div>
+
               <div className="flex flex-col">
                 <label
                   className="text-xl font-semibold mb-1"

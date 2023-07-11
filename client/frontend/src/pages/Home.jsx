@@ -5,6 +5,8 @@ import axios from "axios";
 import human from "humanparser";
 import Autocomplete from "react-google-autocomplete";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
+
+import CitySearchBar from "../components/CitySearchBar";
 const Home = () => {
   const fullName = "Mr. William R. Hearst, III";
   const attrs = human.parseName(fullName);
@@ -120,6 +122,11 @@ const Home = () => {
                     placeholder="Enter Location"
                   />
                 </div>
+                <CitySearchBar
+                  titleColor = "text-white"
+                  inputStyle="w-3/4 border p-4 rounded-xl h-12 bg-slate-200"
+                  dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4 "
+                />
                 <div className="flex gap-4">
                   <div className="flex flex-col gap-3 ">
                     <label

@@ -11,7 +11,7 @@ const Posts = () => {
 
   return (
     <>
-      <div className=" relative  flex flex-col w-full h-full font-poppins ">
+      <div className="post-container relative  flex flex-col w-full h-full font-poppins ">
         <div className=" flex flex-col px-20 py-5   ">
           {/* <input
             className="w-1/2 border h-10 justify-self-center self-center rounded-lg ps-4"

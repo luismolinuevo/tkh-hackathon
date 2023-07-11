@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 
+
 function Faves() {
   const [faves, setFaves] = useState([]);
   const userName = "luismolinuevo";

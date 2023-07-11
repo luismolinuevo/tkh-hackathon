@@ -10,7 +10,6 @@ import { getPosts } from "./loaders";
 
 //components
 import Home from "./pages/Home";
-import Form from "./pages/Form";
 import Login from "./pages/Login";
 import Posts from "./pages/Posts";
 import AiPage from "./pages/AiPage";
@@ -28,10 +27,6 @@ function App() {
           path: "/",
           element: <Home />,
           loader: getPosts,
-        },
-        {
-          path: "/form",
-          element: <Form />,
         },
         {
           path: "/login",

@@ -7,7 +7,7 @@ import { ImageIcon } from "../components/Icons";
 const Profile = () => {
   const initialPosts = useLoaderData();
   const [posts, setPosts] = useState(initialPosts);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   function toggleModal() {
     setShowModal(!showModal);
@@ -49,7 +49,7 @@ const Profile = () => {
   const [showItems, setShowItems] = useState(false);
 
   return (
-    <div className="flex flex-col border border-rose-950  relative font-poppins w-full  grow px-20">
+    <div className="flex flex-col   relative font-poppins w-full  grow px-20">
       <div
         style={{ backgroundImage: "url('/minimalist-leaf.jpg')" }}
         className="hidden md:block md:absolute w-[1000px] h-[382px] bottom-0 right-0"
@@ -94,6 +94,8 @@ const Profile = () => {
                 </div>
                 <CitySearchBar
                   // titleColor = "text-white"
+                  labelInputGap="gap-2"
+                  labelStyling="text-xl font-semibold"
                   inputStyle="border border-zinc-400 w-[280px]"
                   dropdownStyle="dropdown absolute top-[60px] z-10 bg-white  w-[280px] "
                 />

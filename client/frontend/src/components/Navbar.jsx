@@ -15,7 +15,7 @@ const Navbar = () => {
     <div>
       <nav className="bg-white border border-rose-50 font-poppins">
         <div className="flex justify-between items-center m-10 mb-0 ">
-          <a href="" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
               src="/recycle.svg"
               className="h-[88px] w-[88px]"
@@ -69,13 +69,7 @@ const Navbar = () => {
                   Browse
                 </NavLink>
               </li>
-              {LoggedIn && (
-                <li>
-                  <NavLink to="/form" className="focus:text-green-highlight">
-                    Form
-                  </NavLink>
-                </li>
-              )}
+
               {/* <li>
                 <a
                   href="/chat"

@@ -4,12 +4,11 @@ const combinedCitiesArray = cities.join(",").split(", ");
 const citiesList = combinedCitiesArray.filter((city) => city !== "");
 
 const CitySearchBar = (props) => {
-  const [searchValue, setSearchValue] = useState("s");
+  const [searchValue, setSearchValue] = useState("");
   const [showItems, setShowItems] = useState(false);
   const dropdownItems = citiesList
     .filter((city) => {
       const searchCity = searchValue.toLowerCase();
-      // console.log(searchCity)
       return searchCity && city.toLowerCase().startsWith(searchCity);
     })
     .slice(0, 5)
@@ -27,14 +26,14 @@ const CitySearchBar = (props) => {
         </div>
       );
     });
+
   return (
     <div className="flex flex-col gap-2 relative">
-      <div className="flex flex-col gap-2">
-        <label className={"text-xl font-semibold " + props.titleColor } htmlFor="title">
+      <div className={"flex flex-col " + props.labelInputGap}>
+        <label className={props.labelStyling} htmlFor="title">
           City
         </label>
         <input
-                //   className="border border-zinc-400 w-[280px] "
                   className={props.inputStyle}
           type="text"
           name="city"

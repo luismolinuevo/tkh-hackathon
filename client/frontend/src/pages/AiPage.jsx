@@ -9,7 +9,7 @@ export default function AiPage() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "${import.meta.env.VITE_SERVER}/api/generate",
+        `${import.meta.env.VITE_SERVER}/api/generate`,
         {
           method: "POST",
           headers: {

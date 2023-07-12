@@ -20,9 +20,7 @@ const Home = () => {
   const [livingSituation, setLivingSituation] = useState("");
   const [difficulty, setDifficulty] = useState("");
 
-  // console.log(location, livingSituation, difficulty);
-  // console.log(human.parseAddress("3215 Coney Island Ave, Brooklyn, NY 11235, USA"));
-  // console.log(initialPosts[0]);
+
   const searchPost = (e) => {
     e.preventDefault();
     const city = location ? location.split(", ")[1] : "";

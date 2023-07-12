@@ -15,7 +15,7 @@ const Profile = () => {
 
   const handleCreatePost = async () => {
     // console.log(state);
-    const createPost = axios.post("${import.meta.env.VITE_SERVER}/post/", {
+    const createPost = axios.post(`${import.meta.env.VITE_SERVER}/post/`, {
       implementationDifficulty: postValues.difficulty,
       cost: postValues.cost,
       title: postValues.title,

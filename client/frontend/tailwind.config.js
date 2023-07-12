@@ -20,10 +20,17 @@ export default {
       screens: {
         smmd: "704px",
         mdlg: "896px",
-       
       },
+      keyframes: {
+        slide: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+      },
+      animation: {
+        wiggle: 'slide 1s ease-in-out',
+      }
     },
-   
   },
   plugins: [],
 };

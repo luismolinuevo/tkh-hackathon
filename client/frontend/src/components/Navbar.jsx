@@ -3,6 +3,7 @@ import useUserLocation from "../hooks/useUserLocation.jsx";
 import useWeatherInfo from "../hooks/useWeatherInfo.jsx";
 import useEnergyPrices from "../hooks/useEnergyPrices.jsx";
 import { NavLink } from "react-router-dom";
+import Hamburger from "hamburger-react";
 
 const LoggedIn = true;
 
@@ -10,124 +11,16 @@ const Navbar = () => {
   const { city } = useUserLocation();
   const { temperature, humidity } = useWeatherInfo(city);
   const { price } = useEnergyPrices();
-  const [collapse, setCollapse] = useState(true)
-
+  const [collapse, setCollapse] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   function toggleCollapse() {
-    setCollapse(!collapse)
+    setCollapse(!collapse);
   }
   return (
     <div>
-      <nav className="bg-white border border-rose-50 font-poppins">
-        <div className="flex justify-between items-center m-10 mb-0 ">
-          <a href="/" className="flex items-center">
-            <img
-              src="/recycle.svg"
-              className="h-[88px] w-[88px]"
-              alt="TEMP LOGO"
-            />
-            <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">
-              Bloomin
-            </span>
-          </a>
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
-          <div className="border-2 p-2">
-            {city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw
-          </div>
-          <div
-            className=" hidden w-full md:block md:w-auto h-full"
-            id="navbar-default"
-          >
-            <ul className=" p-4 flex gap-8 text-lg font-semibold justify-center align-center">
-              <li>
-                <NavLink
-                  to="/"
-                  className=" focus:text-green-highlight"
-                  aria-current="page"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/posts" className="focus:text-green-highlight">
-                  Browse
-                </NavLink>
-              </li>
-
-              {/* <li>
-                <a
-                  href="/chat"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Chat
-                </a>
-              </li> */}
-              <li>
-                <a href="/favorites">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="css-i6dzq1"
-                  >
-                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <NavLink
-                  className="bg-green-background w-10 h-10 rounded-full"
-                  to="/profile"
-                >
-                  Temp Profile Nav
-                </NavLink>
-                {/* <div className="bg-green-background w-10 h-10 rounded-full"></div> */}
-              </li>
-              <li>
-                {LoggedIn ? (
-                  "Username"
-                ) : (
-                  <a
-                    href="/login"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Login
-                  </a>
-                )}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins">
-        <div class=" flex flex-wrap items-center justify-between p-4  md:px-10 w-full  ">
-        <NavLink href="/" className="flex items-center">
+      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins w-full relative">
+        <div class=" flex flex-wrap items-center justify-between md:px-10 w-full  ">
+          <NavLink href="/" className=" m-4 flex items-center">
             <img
               src="/recycle.svg"
               className="h-[88px] w-[88px]"
@@ -137,13 +30,21 @@ const Navbar = () => {
               Bloomin
             </span>
           </NavLink>
-          <div className="border-2 p-2 hidden md:block">
+          <div className="border-2 rounded-xl px-5 py-3 hidden md:block">
             {city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw
           </div>
-          <button
+          <div className="mr-5 md:hidden ">
+            <Hamburger
+              color="#41D261"
+              rounded
+              toggled={isOpen}
+              toggle={setOpen}
+            />
+          </div>
+          {/* <button
             data-collapse-toggle="navbar-default"
             type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="mr-5 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
             onClick={toggleCollapse}
@@ -164,76 +65,133 @@ const Navbar = () => {
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
-          </button>
-          <div class={`${collapse ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default ">
-            <ul class="w-full flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-dull-green-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white text-lg font-semibold gap-6">
-              <li>
+          </button> */}
+          <div
+            className={
+              // {`${collapse ? "block" : "hidden"} w-full mdlg:block md:w-auto `}
+              `${
+                !isOpen ? "translate-x-full" : "-translate-x-0"
+              } w-full mdlg:block md:w-auto  duration-300 sm:duration-0 fixed md:relative bg-white top-0 z-40  md:translate-x-0`
+            }
+            id="navbar-default "
+          >
+            <ul
+              className="w-full flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-dull-green-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white text-lg font-semibold items-end
+            "
+            >
+              <div className="md:hidden flex w-full items-center justify-between">
+                {/* <button
+                  data-collapse-toggle="navbar-default"
+                  type="button"
+                  className="mr-5 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                  aria-controls="navbar-default"
+                  aria-expanded="false"
+                  onClick={toggleCollapse}
+                >
+                  <span class="sr-only">Open main menu</span>
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 17 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M1 1h15M1 7h15M1 13h15"
+                    />
+                  </svg>
+                </button> */}
+                <div className="mr-5 md:hidden  border-black">
+                  <Hamburger
+                    color="#41D261"
+                    rounded
+                    toggled={isOpen}
+                    toggle={setOpen}
+                  />
+                </div>
+                <NavLink href="/" className=" flex items-center">
+                  <img
+                    src="/recycle.svg"
+                    className="h-[88px] w-[88px]"
+                    alt="TEMP LOGO"
+                  />
+                  <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">
+                    Bloomin
+                  </span>
+                </NavLink>
+              </div>
+
+              <li className="flex justify-end w-full">
                 <NavLink
                   to="/"
                   style={({ isActive }) => {
                     return {
-                      color: isActive ? "#41D261" : ""
+                      color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
                   aria-current="page"
                 >
                   Home
                 </NavLink>
               </li>
-              <li>
+
+              <li className="flex justify-end w-full">
                 <NavLink
                   to="/posts"
                   style={({ isActive }) => {
                     return {
-                      color: isActive ? "#41D261" : ""
+                      color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className=" flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
                 >
                   Browse
                 </NavLink>
               </li>
-              <li>
+              <li className="flex justify-end w-full">
                 <NavLink
                   to="/favorites"
                   style={({ isActive }) => {
                     return {
-                      color: isActive ? "#41D261" : ""
+                      color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
                 >
                   Favorites
                 </NavLink>
               </li>
-              <li>
+              <li className="flex justify-end w-full">
                 <NavLink
                   to="/askai"
                   style={({ isActive }) => {
                     return {
-                      color: isActive ? "#41D261" : ""
+                      color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
                 >
                   AskAi
                 </NavLink>
               </li>
-              <li>
+              <li className="flex justify-end w-full">
                 <NavLink
                   to="/profile"
                   style={({ isActive }) => {
                     return {
-                      color: isActive ? "#41D261" : ""
+                      color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
                 >
                   Profile
                 </NavLink>
               </li>
-            
             </ul>
           </div>
         </div>

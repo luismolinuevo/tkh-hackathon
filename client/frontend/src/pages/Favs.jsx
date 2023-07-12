@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 
-
 function Faves() {
   const [faves, setFaves] = useState([]);
   const userName = "luismolinuevo";
@@ -11,7 +10,7 @@ function Faves() {
     const fetchFaves = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/post/upvotes/luismolinuevo/upvote`
+          `${import.meta.env.VITE_SERVER}/post/upvotes/luismolinuevo/upvote`
         );
         if (response.status === 200) {
           setFaves(response.data.getUpvotes);
@@ -31,14 +30,13 @@ function Faves() {
         faves.map((post) => (
           <div className="mb-4" key={post.id}>
             <Card
-
               key={post.post.id}
               id={post.post.id}
               description={post.post.description}
               votes={post.post.upvotes - post.post.downvotes}
               username={post.post.userName}
-            //   posts={posts}
-            //   setPosts={setPosts}
+              //   posts={posts}
+              //   setPosts={setPosts}
             />
           </div>
         ))

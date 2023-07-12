@@ -15,7 +15,7 @@ const Profile = () => {
 
   const handleCreatePost = async () => {
     // console.log(state);
-    const createPost = axios.post("http://localhost:3000/post/", {
+    const createPost = axios.post("${import.meta.env.VITE_SERVER}/post/", {
       implementationDifficulty: postValues.difficulty,
       cost: postValues.cost,
       title: postValues.title,
@@ -37,17 +37,16 @@ const Profile = () => {
     description: "",
     cost: "cheap",
     livingSituation: "urban",
-    difficulty:"easy",
-
+    difficulty: "easy",
   });
-  console.log(postValues)
- const changeHandler = e => {
-    setPostValues({...postValues, [e.target.name]: e.target.value})
-  }
-  
+  console.log(postValues);
+  const changeHandler = (e) => {
+    setPostValues({ ...postValues, [e.target.name]: e.target.value });
+  };
+
   const [searchValue, setSearchValue] = useState("");
   const [showItems, setShowItems] = useState(false);
-  console.log(searchValue)
+  console.log(searchValue);
   return (
     <div className="flex flex-col   relative font-poppins w-full  grow px-20">
       <div
@@ -134,7 +133,9 @@ const Profile = () => {
                     id="cost"
                     onChange={changeHandler}
                   >
-                    <option value="cheap" selected>Cheap</option>
+                    <option value="cheap" selected>
+                      Cheap
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="expensive">Expensive</option>
                   </select>
@@ -152,7 +153,9 @@ const Profile = () => {
                     id="living-situation"
                     onChange={changeHandler}
                   >
-                    <option value="urban" selected>Urban</option>
+                    <option value="urban" selected>
+                      Urban
+                    </option>
                     <option value="suburban">Suburban</option>
                     <option value="rural">Rural</option>
                   </select>
@@ -167,8 +170,10 @@ const Profile = () => {
                     id="difficulty"
                     onChange={changeHandler}
                   >
-                    <option value="easy" >Easy</option>
-                    <option value="medium" selected>Medium</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>
+                      Medium
+                    </option>
                     <option value="hard">Hard</option>
                   </select>
                 </div>
@@ -179,7 +184,10 @@ const Profile = () => {
                 <ImageIcon />
                 Upload a Photo
               </button>
-              <button onClick={handleCreatePost} className="bg-green-background rounded-3xl px-4 py-2 text-white">
+              <button
+                onClick={handleCreatePost}
+                className="bg-green-background rounded-3xl px-4 py-2 text-white"
+              >
                 Submit
               </button>
             </footer>

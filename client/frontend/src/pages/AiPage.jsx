@@ -8,13 +8,16 @@ export default function AiPage() {
     event.preventDefault();
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3000/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ situation: situationInput }),
-      });
+      const response = await fetch(
+        "${import.meta.env.VITE_SERVER}/api/generate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ situation: situationInput }),
+        }
+      );
 
       const data = await response.json();
       if (response.status !== 200) {
@@ -50,7 +53,7 @@ export default function AiPage() {
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
-      setIsLoading(false)
+      setIsLoading(false);
       alert(error.message);
     }
   }

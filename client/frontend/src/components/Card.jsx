@@ -20,7 +20,7 @@ const Card = ({
     try {
       const response = await axios({
         method: "put",
-        url: `http://localhost:3000/post/${id}/vote/`,
+        url: `${import.meta.env.VITE_SERVER}/post/${id}/vote/`,
         data: {
           type: type,
           userName: username,
@@ -71,7 +71,7 @@ const Card = ({
           >
             <div className="absolute capitalize px-5 bottom-0  w-full h-[54px] backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200">
               <div className="text-2xl text-white-highlight flex h-full items-center">
-                 {title}
+                {title}
               </div>
             </div>
           </div>

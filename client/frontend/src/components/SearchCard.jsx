@@ -17,13 +17,11 @@ const SearchCard = ({
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
 
-
-
   const updateLike = async (type, username, id) => {
     try {
       const response = await axios({
         method: "put",
-        url: `http://localhost:3000/post/${id}/vote/`,
+        url: `${import.meta.env.VITE_SERVER}/post/${id}/vote/`,
         data: {
           type: type,
           userName: username,

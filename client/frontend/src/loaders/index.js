@@ -4,7 +4,7 @@ const getPosts = async () => {
   try {
     const response = await axios({
       method: "get",
-      url: `http://localhost:3000/post/`,
+      url: `${import.meta.env.VITE_SERVER}/post/`,
     });
 
     console.log(response);

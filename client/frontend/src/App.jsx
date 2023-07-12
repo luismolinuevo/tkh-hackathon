@@ -10,13 +10,12 @@ import { getPosts } from "./loaders";
 
 //components
 import Home from "./pages/Home";
-import Form from "./pages/Form";
 import Login from "./pages/Login";
 import Posts from "./pages/Posts";
-import AiPage from "./pages/AiPage"
+import AiPage from "./pages/AiPage";
 import Incentives from "./pages/Incentives";
-import Faves from "./pages/Favs"
-
+import Faves from "./pages/Favs";
+import Profile from "./pages/Profile";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,11 +26,7 @@ function App() {
         {
           path: "/",
           element: <Home />,
-          loader: getPosts
-        },
-        {
-          path: "/form",
-          element: <Form />,
+          loader: getPosts,
         },
         {
           path: "/login",
@@ -40,21 +35,32 @@ function App() {
         {
           path: "/posts",
           element: <Posts />,
+          loader: getPosts,
         },
         {
           path: "/askai",
-          element: <AiPage/>
+          element: <AiPage />,
         },
         {
-          path: "/favs",
-          element: <Faves/>
-        }
+          path: "/favorites",
+          element: <Faves />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
+          loader: getPosts,
+        },
       ],
     },
     {
       path: "/incentives",
       element: <Incentives />,
     },
+    // {
+    //   path: "/profile",
+    //   element: <Profile />,
+    //   loader: getPosts,
+    // },
   ]);
 
   return (

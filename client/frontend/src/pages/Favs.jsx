@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 
+
 function Faves() {
   const [faves, setFaves] = useState([]);
   const userName = "luismolinuevo";
@@ -30,6 +31,7 @@ function Faves() {
         faves.map((post) => (
           <div className="mb-4" key={post.id}>
             <Card
+
               key={post.post.id}
               id={post.post.id}
               description={post.post.description}

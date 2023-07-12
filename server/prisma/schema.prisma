@@ -20,18 +20,38 @@ datasource db {
 //   // votes     Votes[]
 // }
 
+// model Post {
+//   id                       Int    @id @unique @default(autoincrement())
+//   cost                     String
+//   description              String @db.VarChar(10000)
+//   implementationDifficulty String
+//   city                     String
+//   country                  String
+//   state                     String
+//   zipCode                  String
+//   livingSituation          String
+//   title                    String
+//   goodFor                  String
+
+//   userName  String //since we are faking it I wont have any real relations 
+//   // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   votes     Votes[]
+//   recommendations Recommendations[]
+//   upvotes   Int     @default(0)
+//   downvotes Int     @default(0)
+
+//   // @@index([userId])
+// }
+
 model Post {
   id                       Int    @id @unique @default(autoincrement())
   cost                     String
   description              String @db.VarChar(10000)
   implementationDifficulty String
   city                     String
-  country                  String
-  state                     String
-  zipCode                  String
   livingSituation          String
   title                    String
-  goodFor                  String
+
 
   userName  String //since we are faking it I wont have any real relations 
   // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)

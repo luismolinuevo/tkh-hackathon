@@ -2,6 +2,8 @@
 
 A web application that promotes sustainability by providing its users with information through posts created by its members, an AI chatbot, and data generated using APIs. We used APIs from OpenAi, DSIRE, and Comed to expose relevant to the user. With the user’s location, they can see incentive programs that offer financial benefits for sustainable actions, the price of energy for the current time, and the best methods to take in becoming environmentally friendly.
 
+<a href="https://tkh-hackathon.vercel.app//"> See live site </a> 
+
 ## Built With
 * React 
 * Express

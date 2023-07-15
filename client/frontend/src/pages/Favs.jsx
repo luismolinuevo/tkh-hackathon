@@ -35,8 +35,7 @@ function Faves() {
               description={post.post.description}
               votes={post.post.upvotes - post.post.downvotes}
               username={post.post.userName}
-              //   posts={posts}
-              //   setPosts={setPosts}
+
             />
           </div>
         ))

@@ -4,7 +4,7 @@ import useWeatherInfo from "../hooks/useWeatherInfo.jsx";
 import useEnergyPrices from "../hooks/useEnergyPrices.jsx";
 import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
-
+import HumidityIcon from "../../public/humiditysvg.svg"
 const LoggedIn = true;
 
 const Navbar = () => {
@@ -16,6 +16,8 @@ const Navbar = () => {
   function toggleCollapse() {
     setCollapse(!collapse);
   }
+
+  console.log(price)
   return (
     <div>
       <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins w-full relative">
@@ -31,7 +33,7 @@ const Navbar = () => {
             </span>
           </NavLink>
           <div className="border-2 rounded-xl px-5 py-3 hidden md:block">
-            {city} | {temperature}&#8457; | {humidity}% | {price}&cent;/kHw
+            {city} | {temperature}&#8457; | {humidity}% Humidity { } | {price}&cent;/kHw
           </div>
           <div className="mr-5 md:hidden ">
             <Hamburger

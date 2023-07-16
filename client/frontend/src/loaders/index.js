@@ -7,7 +7,7 @@ const getPosts = async () => {
       url: `${import.meta.env.VITE_SERVER}/post/`,
     });
 
-    console.log(response);
+    // console.log(response);
     const postArray = response.data.getAllPost;
 
     return postArray;

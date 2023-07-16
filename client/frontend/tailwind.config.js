@@ -28,8 +28,11 @@ export default {
         },
       },
       animation: {
-        wiggle: 'slide 1s ease-in-out',
-      }
+        wiggle: "slide 1s ease-in-out",
+      },
+      boxShadow: {
+        "3xl": "0 10px 10px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",
+      },
     },
   },
   plugins: [],

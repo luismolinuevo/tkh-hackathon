@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NavAndFooter from "./templates/NavAndFooter";
 
 //loaders
-import { getPosts } from "./loaders";
+import { getIncentives, getPosts } from "./loaders";
 
 //components
 import Home from "./pages/Home";
@@ -50,12 +50,14 @@ function App() {
           element: <Profile />,
           loader: getPosts,
         },
+        {
+          path: "/incentives",
+          element: <Incentives />,
+          // loader: getIncentives
+        },
       ],
     },
-    {
-      path: "/incentives",
-      element: <Incentives />,
-    },
+
     // {
     //   path: "/profile",
     //   element: <Profile />,

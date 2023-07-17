@@ -56,7 +56,7 @@ const SearchCard = ({
       console.log(e);
     }
   };
-
+console.log(cost, "dasdsad")
   return (
     <div className="flex flex-col h-full w-full   z-10 ">
       <div className="flex flex-col gap-4 py-6  border-b-2">

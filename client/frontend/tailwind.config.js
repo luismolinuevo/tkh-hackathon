@@ -32,6 +32,10 @@ export default {
       },
       boxShadow: {
         "3xl": "0 10px 10px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",
+        // green:
+        //   "8px 8px 15px -5px #AEDA38 ",
+        green:
+        "3px 5px 10px -3px #AEDA38"
       },
     },
   },

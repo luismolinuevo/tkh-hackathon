@@ -43,7 +43,7 @@ const Profile = () => {
   const changeHandler = (e) => {
     setPostValues({ ...postValues, [e.target.name]: e.target.value });
   };
-
+console.log(postValues)
   const [searchValue, setSearchValue] = useState("");
   const [showItems, setShowItems] = useState(false);
   console.log(searchValue);
@@ -199,6 +199,7 @@ const Profile = () => {
           return (
             <SearchCard
               //         title="Green houses"
+              title={post.title}
               key={post.id}
               id={post.id}
               description={post.description}
@@ -209,6 +210,7 @@ const Profile = () => {
               difficulty={post.implementationDifficulty}
               livingSituation={post.livingSituation}
               location={post.city}
+              cost={post.cost}
             />
           );
         })}

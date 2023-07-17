@@ -16,7 +16,6 @@ const useEnergyPrices = () => {
         setPriceInfo({ loading: false });
         if (response) {
           const data = response.data;
-          console.log(response.data.price);
           setPriceInfo({
             price: data.price,
             loading: false,

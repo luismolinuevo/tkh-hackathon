@@ -16,4 +16,24 @@ const getPosts = async () => {
   }
 };
 
-export { getPosts };
+const getIncentives = async () => {
+  try {
+    const response = await axios({
+      method: "get",
+      url: `${import.meta.env.VITE_SERVER}/dsire`,
+    });
+
+    console.log(response);
+
+    if (response) {
+      const data = response.data.dsire_response;
+      const itemsWithStates = data.filter(
+        (items) => items.State !== undefined && items.WebsiteUrl !== ""
+      );
+      return itemsWithStates;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+export { getPosts, getIncentives };

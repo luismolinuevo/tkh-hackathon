@@ -1,10 +1,10 @@
 import express from "express";
-import postRouter from "./routes/post.js"
-import recommendationRouter from "./routes/recommend.js"
-import comedRouter from "./routes/comed.js"
-import cors from "cors"
+import postRouter from "./routes/post.js";
+import recommendationRouter from "./routes/recommend.js";
+import comedRouter from "./routes/comed.js";
+import dsireRouter from "./routes/dsire.js";
+import cors from "cors";
 import { Configuration, OpenAIApi } from "openai";
-
 
 const app = express();
 app.use(cors());
@@ -15,8 +15,9 @@ const openai = new OpenAIApi(configuration);
 app.use(express.json());
 
 app.use("/post", postRouter);
-app.use("/recommendation", recommendationRouter)
-app.use("/comed", comedRouter)
+app.use("/recommendation", recommendationRouter);
+app.use("/comed", comedRouter);
+app.use("/dsire", dsireRouter);
 
 app.post("/api/generate", async (req, res) => {
   if (!configuration.apiKey) {

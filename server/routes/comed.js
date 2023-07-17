@@ -11,7 +11,6 @@ router.get("/", async (req, res) => {
             })
 
             const data = response.data
-            console.log(response.data[0])
             res.status(200).json({
                 time: data[0].millisUTC,
                 price: data[0].price

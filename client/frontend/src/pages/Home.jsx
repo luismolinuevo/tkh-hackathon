@@ -37,7 +37,7 @@ const Home = () => {
   const initialPosts = useLoaderData();
 
   const [searchInput, setSearchInput] = useState("");
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState(initialPosts || null);
 
   const [location, setLocation] = useState("");
   const [livingSituation, setLivingSituation] = useState("");
@@ -199,7 +199,7 @@ const Home = () => {
           {/* {console.log(posts[0].id)} */}
           <Carousel
             responsive={responsive}>
-          {posts.map((post) => {
+          {posts && posts.map((post) => {
               return (
                 <Card
                   title="Green houses"

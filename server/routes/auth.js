@@ -1,5 +1,10 @@
 import express from "express";
+import argon2 from "argon2";
+import jwt from "jsonwebtoken";
 import prisma from "../db/index.js";
+import dotenv from "dotenv";
+import passport from "passport";
+dotenv.config()
 
 const router = express.Router();
 

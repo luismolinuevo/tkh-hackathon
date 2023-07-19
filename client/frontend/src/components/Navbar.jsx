@@ -19,15 +19,15 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins w-full relative">
-        <div class=" flex flex-wrap items-center justify-between md:px-10 w-full  ">
+      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins text-xl w-full relative">
+        <div class="  flex flex-wrap items-center justify-between md:px-10 w-full  ">
           <NavLink href="/" className=" m-4 flex items-center">
             <img
               src="/recycle.svg"
               className="h-[88px] w-[88px]"
               alt="TEMP LOGO"
             />
-            <span className="self-center text-4xl font-semibold whitespace-nowrap text-green-highlight">
+            <span className="self-center    text-4xl whitespace-nowrap text-green-highlight">
               Bloomin
             </span>
           </NavLink>
@@ -51,7 +51,7 @@ const Navbar = () => {
             id="navbar-default "
           >
             <ul
-              className="w-full flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-dull-green-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white text-lg font-semibold items-end
+              className="w-full flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-dull-green-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white   items-end text-xl font-[600]
             "
             >
               <div className="md:hidden flex w-full items-center justify-between">
@@ -77,7 +77,7 @@ const Navbar = () => {
 
               <li className="flex justify-end w-full">
                 <NavLink
-                  to="/"
+                  to="/home"
                   style={({ isActive }) => {
                     return {
                       color: isActive ? "#41D261" : "",
@@ -150,7 +150,7 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0     md:p-0 "
                 >
                   Profile
                 </NavLink>

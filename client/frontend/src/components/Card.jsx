@@ -59,14 +59,14 @@ const Card = ({
   // console.log(likesStatus);
   return (
     <>
-      <div className="flex flex-col mt-5 ">
+      <div className="flex flex-col ">
         <div>
           <div
-            className={`flex border bg-green-background relative w-[513px] h-[287px] rounded-2xl overflow-hidden shadow-sm ${
-              isHidden ? "" : "border-b-0"
-            }`}
+    
+            className={`flex border bg-green-background relative w-[90%] h-[350px] rounded-2xl overflow-hidden shadow-3xl my-10 border-0`}
             style={{
               backgroundImage: `url('https://source.unsplash.com/random/56×56/?${title}')`,
+              
             }}
           >
             <div className="absolute capitalize px-5 bottom-0  w-full h-[54px] backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200">

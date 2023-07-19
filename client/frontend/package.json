@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-google-autocomplete": "^2.7.3",
     "react-modal": "^3.16.1",
+    "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {

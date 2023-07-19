@@ -6,8 +6,31 @@ import human from "humanparser";
 import Autocomplete from "react-google-autocomplete";
 import usePlacesService from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 import CitySearchBar from "../components/CitySearchBar";
 const Home = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2.5,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   const fullName = "Mr. William R. Hearst, III";
   const attrs = human.parseName(fullName);
 
@@ -19,7 +42,6 @@ const Home = () => {
   const [location, setLocation] = useState("");
   const [livingSituation, setLivingSituation] = useState("");
   const [difficulty, setDifficulty] = useState("");
-
 
   const searchPost = (e) => {
     e.preventDefault();
@@ -96,7 +118,7 @@ const Home = () => {
             <div className=" backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200 rounded-2xl overflow-hidden h-5/6 ">
               <form className="flex flex-col justify-center items-center md:items-start p-5 sm:px-20 sm:py-10 gap-5">
                 <CitySearchBar
-                   searchValue={searchValue}
+                  searchValue={searchValue}
                   setSearchValue={setSearchValue}
                   containerStyling="justify-center items-center md:items-start "
                   labelInputGap="gap-3"
@@ -160,7 +182,7 @@ const Home = () => {
         </div>
         <div
           // style={{ backgroundImage: "url('/minimalist-leaf.jpg')" }}
-          className=" px-20 "
+          className=" px-20 mb-10 "
         >
           <div
             style={{ backgroundImage: "url('/minimalist-leaf.jpg')" }}
@@ -170,14 +192,14 @@ const Home = () => {
             <div className="text-4xl font-semibold z-10">Popular</div>
             <div>Sort by ▼ </div>
           </div>
-
           {/* {posts
             .filter((post) =>
               post.description.toLowerCase().includes(searchInput)
           ) */}
           {/* {console.log(posts[0].id)} */}
-          <div className="flex gap-16 rounded-lg">
-            {posts.map((post) => {
+          <Carousel
+            responsive={responsive}>
+          {posts.map((post) => {
               return (
                 <Card
                   title="Green houses"
@@ -194,7 +216,9 @@ const Home = () => {
                 />
               );
             })}
-          </div>
+          </Carousel>
+  
+          
         </div>
       </div>
     </>

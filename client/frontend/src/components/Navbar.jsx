@@ -47,7 +47,7 @@ const Navbar = () => {
             className={
               `${
                 !isOpen ? "translate-x-full" : "-translate-x-0"
-              } border w-full lg:block lg:w-auto  duration-300 sm:duration-0 fixed lg:relative bg-white top-0 z-40  lg:translate-x-0`
+              }  w-full lg:block lg:w-auto  duration-300 sm:duration-0 fixed lg:relative bg-white top-0 z-40  lg:translate-x-0`
             }
             id="navbar-default "
           >

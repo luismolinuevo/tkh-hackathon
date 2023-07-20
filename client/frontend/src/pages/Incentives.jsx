@@ -120,7 +120,7 @@ const Incentives = () => {
                 })}
               </div>
               <div className="flex justify-between w-full text-xl self-end mt-auto">
-                <div className="italic"> Updated: {program.LastUpdate}</div>
+                <div className="italic"> Updated{" "}: {program.LastUpdate}</div>
                 <div className="font-bold"> {program.State}</div>
               </div>
             </div>

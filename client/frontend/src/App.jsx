@@ -16,6 +16,8 @@ import AiPage from "./pages/AiPage";
 import Incentives from "./pages/Incentives";
 import Faves from "./pages/Favs";
 import Profile from "./pages/Profile";
+import LandingPage from "./pages/LandingPage";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,8 +27,14 @@ function App() {
       children: [
         {
           path: "/",
+          element: <LandingPage />,
+          
+        },
+        {
+          path: "/home",
           element: <Home />,
           loader: getPosts,
+          errorElement: <ErrorBoundary />
         },
         {
           path: "/login",
@@ -36,6 +44,7 @@ function App() {
           path: "/posts",
           element: <Posts />,
           loader: getPosts,
+          errorElement: <ErrorBoundary />
         },
         {
           path: "/askai",
@@ -49,6 +58,8 @@ function App() {
           path: "/profile",
           element: <Profile />,
           loader: getPosts,
+          errorElement: <ErrorBoundary />
+          
         },
         {
           path: "/incentives",

@@ -28,13 +28,13 @@ const CitySearchBar = (props) => {
     });
 
   return (
-    <div className={"flex flex-col gap-2 relative  w-[224px] md:w-full " + props.containerStyling}>
+    <div className={"flex flex-col gap-2 relative w-[224px] md:w-full " + props.containerStyling}>
       <div className={"flex flex-col w-full " + props.labelInputGap}>
-        <label className={props.labelStyling} htmlFor="title">
+        <label className={props.labelStyling + " mb-5 text-4xl"} htmlFor="title">
           City
         </label>
         <input
-                  className={props.inputStyle}
+                  className={props.inputStyle + " h-[64px] text-[22px]"}
           type="text"
           name="city"
           value={props.searchValue}

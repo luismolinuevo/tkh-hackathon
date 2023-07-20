@@ -7,12 +7,16 @@ const getPosts = async () => {
       url: `${import.meta.env.VITE_SERVER}/post/`,
     });
 
-    // console.log(response);
-    const postArray = response.data.getAllPost;
+    if (response) {
+      // console.log(response);
+      const postArray = response.data.getAllPost;
 
-    return postArray;
+      return postArray;
+    } else {
+      return null;
+    }
   } catch (e) {
-    console.log(e);
+    console.log(e, "asdsadasd");
   }
 };
 
@@ -31,9 +35,11 @@ const getIncentives = async () => {
         (items) => items.State !== undefined && items.WebsiteUrl !== ""
       );
       return itemsWithStates;
+    } else {
+      return null;
     }
   } catch (e) {
-    console.log(e);
+    console.log(e, "ASDsadsad");
   }
 };
 export { getPosts, getIncentives };

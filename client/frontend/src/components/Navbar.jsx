@@ -20,21 +20,21 @@ const Navbar = () => {
   return (
     <div>
       <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins text-xl w-full relative">
-        <div class="  flex flex-wrap items-center justify-between md:px-10 w-full  ">
+        <div class="  flex flex-wrap  items-center justify-between lg:px-10 w-full  ">
           <NavLink href="/" className=" m-4 flex items-center">
             <img
               src="/recycle.svg"
               className="h-[88px] w-[88px]"
               alt="TEMP LOGO"
             />
-            <span className="self-center    text-4xl whitespace-nowrap text-green-highlight">
+            <span className="self-center font-bold text-4xl whitespace-nowrap text-green-highlight">
               Bloomin
             </span>
           </NavLink>
-          <div className="border-2 rounded-xl px-5 py-3 hidden md:block">
+          <div className=" border-2 rounded-xl px-5 py-3 hidden xxxl:block">
             {city} | {temperature}&#8457; | {humidity}% Humidity { } | {price}&cent;/kHw
           </div>
-          <div className="mr-5 md:hidden ">
+          <div className="mr-5 lg:hidden ">
             <Hamburger
               color="#41D261"
               rounded
@@ -42,20 +42,21 @@ const Navbar = () => {
               toggle={setOpen}
             />
           </div>
+  
           <div
             className={
               `${
                 !isOpen ? "translate-x-full" : "-translate-x-0"
-              } w-full mdlg:block md:w-auto  duration-300 sm:duration-0 fixed md:relative bg-white top-0 z-40  md:translate-x-0`
+              } border w-full lg:block lg:w-auto  duration-300 sm:duration-0 fixed lg:relative bg-white top-0 z-40  lg:translate-x-0`
             }
             id="navbar-default "
           >
             <ul
-              className="w-full flex flex-col p-4 md:p-0 border border-gray-100 rounded-lg bg-dull-green-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white   items-end text-xl font-[600]
+              className="w-full flex flex-col p-4 lg:p-0 border border-gray-100 rounded-lg bg-dull-green-background lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white   items-end text-xl font-[600]
             "
             >
-              <div className="md:hidden flex w-full items-center justify-between">
-                <div className="mr-5 md:hidden  border-black">
+              <div className=" lg:hidden flex w-full items-center justify-between">
+                <div className="mr-5 lg:hidden  border-black">
                   <Hamburger
                     color="#41D261"
                     rounded
@@ -83,7 +84,7 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0  lg:p-0 "
                   aria-current="page"
                 >
                   Home
@@ -98,7 +99,7 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className=" flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className=" flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0  lg:p-0 "
                 >
                   Browse
                 </NavLink>
@@ -111,9 +112,9 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0  lg:p-0 "
                 >
-                  Favorites
+                  Saved
                 </NavLink>
               </li>
               <li className="flex justify-end w-full">
@@ -124,7 +125,7 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0  lg:p-0 "
                 >
                   AskAi
                 </NavLink>
@@ -137,9 +138,9 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0  md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0  lg:p-0 "
                 >
-                  Incentives
+                  Programs
                 </NavLink>
               </li>
               <li className="flex justify-end w-full">
@@ -150,14 +151,18 @@ const Navbar = () => {
                       color: isActive ? "#41D261" : "",
                     };
                   }}
-                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 md:hover:bg-transparent md:border-0     md:p-0 "
+                  className="flex justify-end w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-slate-50 lg:hover:bg-transparent lg:border-0     lg:p-0 "
                 >
                   Profile
                 </NavLink>
               </li>
             </ul>
           </div>
+  
         </div>
+        <div className=" border-2 rounded-xl text-center w-[550px] ms-auto me-auto  px-5 py-3 mb-5 xxxl:hidden">
+            {city} | {temperature}&#8457; | {humidity}% Humidity { } | {price}&cent;/kHw
+          </div>
       </nav>
     </div>
   );

@@ -15,13 +15,14 @@ export default {
         "dull-green-background": "rgba(204, 219, 207, 0.40)",
       },
       fontFamily: {
-        // poppins: ["Poppins"],
-        poppins: "Poppins , sans-serif;font-weight:400}",
+        poppins: ["Poppins"],
+        // poppins: "Poppins , sans-serif;font-weight:400}",
       },
       screens: {
         smmd: "704px",
         mdlg: "896px",
-        xxl: "1400px"
+        xxl: "1400px",
+        xxxl: "1700px"
       },
       keyframes: {
         slide: {

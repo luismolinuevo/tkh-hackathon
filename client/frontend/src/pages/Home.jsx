@@ -116,27 +116,27 @@ const Home = () => {
             </div>
 
             <div className=" backdrop-blur-xl backdrop-opacity-95 backdrop-contrast-50 backdrop-brightness-200 rounded-2xl overflow-hidden h-5/6 ">
-              <form className="flex flex-col justify-center items-center md:items-start p-5 sm:px-20 sm:py-10 gap-5">
+              <form className="flex flex-col justify-center items-center md:items-start p-5 sm:px-20 sm:py-10 gap-10">
                 <CitySearchBar
                   searchValue={searchValue}
                   setSearchValue={setSearchValue}
                   containerStyling="justify-center items-center md:items-start "
-                  labelInputGap="gap-3"
-                  labelStyling="text-3xl  text-white-highlight"
-                  inputStyle="  md:w-3/4 border p-4 rounded-xl h-12 bg-slate-200"
+                  labelInputGap=""
+                  labelStyling="text-white-highlight"
+                  inputStyle="  md:w-3/4 border p-4 rounded-xl  bg-slate-200"
                   dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4 "
                   placeholder="Ex. New York City"
                 />
-                <div className="flex flex-col  md:flex-row gap-4 ">
+                <div className="flex flex-col  md:flex-row gap-16 ">
                   <div className="flex flex-col gap-3 ">
                     <label
                       htmlFor="living-situation"
-                      className="text-2xl text-white-highlight"
+                      className="text-3xl text-white-highlight"
                     >
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -150,12 +150,12 @@ const Home = () => {
                   <div className="flex flex-col   gap-3">
                     <label
                       htmlFor="type"
-                      className="text-2xl text-white-highlight"
+                      className="text-3xl text-white-highlight"
                     >
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}
@@ -170,7 +170,7 @@ const Home = () => {
                 </div>
                 <div className="flex  mt-3 ">
                   <button
-                    className="text-lg rounded-3xl  py-2 px-5 bg-green-background text-white-highlight"
+                    className="text-2xl rounded-3xl w-[150px]  p-3 px-8 bg-green-background text-white-highlight"
                     onClick={(e) => searchPost(e)}
                   >
                     Submit
@@ -190,7 +190,6 @@ const Home = () => {
           ></div>
           <div className="flex justify-between items-center py-8">
             <div className="text-4xl font-semibold z-10">Popular</div>
-            <div>Sort by ▼ </div>
           </div>
           {/* {posts
             .filter((post) =>

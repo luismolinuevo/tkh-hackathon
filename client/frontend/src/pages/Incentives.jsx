@@ -28,6 +28,7 @@ const Incentives = () => {
             (items) => items.State !== undefined && items.WebsiteUrl !== ""
           );
           setIsLoading(false);
+
           setPrograms(itemsWithStates);
         }
       } catch (e) {
@@ -49,19 +50,21 @@ const Incentives = () => {
 
   return (
     <div className="flex flex-col w-full  px-16 gap-7 mt-10">
-      <h1 className="text-5xl  font-poppins">Find Incentive Programs for Environmental Sustainability</h1>
+      <h1 className="text-5xl  font-poppins">
+        Find Incentive Programs for Environmental Sustainability
+      </h1>
 
       <div className="w-full ">
         <label htmlFor="state-input"></label>
         <input
-          className="border w-full md:w-3/4 p-4 rounded-xl h-12 bg-dull-green-background"
+          className="border w-full md:w-3/4 p-4 rounded-xl h-[64px] bg-dull-green-background text-2xl outline-none"
           placeholder="Search Program By State"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </div>
-      
-        {isLoading ? (
+
+      {isLoading ? (
         <div>
           <h3 className="text-2xl font-bold flex">
             <p className="font-poppins">Loading</p>
@@ -73,23 +76,53 @@ const Incentives = () => {
               </div>
             </div>
           </h3>
-          </div>
-        ) : (
-          ""
-        )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 mdlg:grid-cols-3 xl:grid-cols-4 gap-6  auto-rows-fr">
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="grid grid-cols-1  mdlg:grid-cols-2 xl:grid-cols-3 xxxl:grid-cols-4 gap-6  auto-rows-fr">
         {filteredStatesSearch.map((program, index) => {
           return (
             <div
               key={index}
-              className="font-poppins rounded-xl p-6 border bg-white-highlight shadow-md hover:shadow-green hover:-translate-y-0.5 hover:-translate-x-0.5 duration-200"
+              className="flex flex-col font-poppins rounded-xl p-8 border bg-white-highlight shadow-md hover:shadow-green hover:-translate-y-0.5  duration-200 min-h-[200px]"
             >
               {/* {program.Name} */}
-              <div className="font-bold text-xl">{program.State}</div>
-              <a className="hover:underline decoration-green-background "href={program.WebsiteUrl} target="_blank">
+
+              <a
+                className="hover:underline decoration-green-background text-3xl"
+                href={program.WebsiteUrl}
+                target="_blank"
+              >
                 {" "}
                 {program.Name}
               </a>
+              <div className="flex flex-col gap-2 mt-2">
+                {program.Contacts.slice(0, 3).map((contactInfo) => {
+                  console.log(
+                    contactInfo.contact,
+                    contactInfo.contact.firstName
+                  );
+                  return (
+                    <div className="">
+                      <div className="text-green-background font-semibold text-md">
+                        {contactInfo.contact.firstName}{" "}
+                        {contactInfo.contact.lastName}
+                      </div>
+                      <div>
+                        {contactInfo.contact.email} 
+                      </div>
+                      <div>
+                      {contactInfo.contact.phone}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex justify-between w-full text-xl self-end mt-auto">
+                <div className="italic"> Updated: {program.LastUpdate}</div>
+                <div className="font-bold"> {program.State}</div>
+              </div>
             </div>
           );
         })}

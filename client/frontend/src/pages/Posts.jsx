@@ -41,25 +41,25 @@ const Posts = () => {
             </div>
 
             <div className=" backdrop-blur-xl backdrop-opacity-95  overflow-hidden h-5/6  z-50">
-              <form className="flex flex-col gap-5">
+              <form className="flex flex-col gap-10">
                 <div className="flex flex-col gap-3">
                   <CitySearchBar
                     searchValue={searchValue}
                     setSearchValue={setSearchValue}
-                    labelInputGap="gap-3"
-                    labelStyling="text-3xl"
-                    inputStyle="md:w-3/4 border p-4 rounded-xl h-12 bg-dull-green-background"
+                    labelInputGap=""
+                    labelStyling=""
+                    inputStyle="md:w-3/4 border p-4 rounded-xl h-[64px] bg-dull-green-background"
                     dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4"
                     placeholder="Enter City"
                   />
                 </div>
-                <div className="flex flex-col md:flex-row gap-4 text-black">
+                <div className="flex flex-col md:flex-row gap-[50px]  text-black">
                   <div className="flex flex-col gap-3 ">
-                    <label htmlFor="living-situation" className="text-2xl ">
+                    <label htmlFor="living-situation" className="text-3xl ">
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -71,11 +71,11 @@ const Posts = () => {
                     </select>
                   </div>
                   <div className="flex flex-col  gap-3">
-                    <label htmlFor="type" className="text-2xl">
+                    <label htmlFor="type" className="text-3xl">
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 border h-10 ps-4 rounded-3xl appearance-none"
+                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}

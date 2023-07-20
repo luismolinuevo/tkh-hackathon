@@ -11,14 +11,17 @@ datasource db {
   relationMode = "prisma"
 }
 
-// model User {
-//   id        Int     @id @unique @default(autoincrement())
-//   firstName String? @db.VarChar(255)
-//   lastName  String? @db.VarChar(255)
-//   userName  String  @db.VarChar(255)
-//   // post      Post[]
-//   // votes     Votes[]
-// }
+model User {
+  id           Int            @id @unique @default(autoincrement())
+  firstName    String?        @db.VarChar(255)
+  lastName     String?        @db.VarChar(255)
+  userName     String         @db.VarChar(255)
+  email        String         @unique @db.VarChar(255)
+  password     String         @db.VarChar(255)
+  imageUrl     String?
+  post      Post[]
+  votes     Votes[]
+}
 
 // model Post {
 //   id                       Int    @id @unique @default(autoincrement())
@@ -52,15 +55,15 @@ model Post {
   livingSituation          String
   title                    String
 
-
-  userName  String //since we are faking it I wont have any real relations 
-  // user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                   Int
+  // userName  String //since we are faking it I wont have any real relations 
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   votes     Votes[]
   recommendations Recommendations[]
   upvotes   Int     @default(0)
   downvotes Int     @default(0)
 
-  // @@index([userId])
+  @@index([userId])
 }
 
 model Votes {
@@ -68,11 +71,12 @@ model Votes {
   postId   Int
   userName String //since we are faking it I wont have any real relations 
   type     String //could be upvote or downvote
+  userId   Int
 
-  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
 
-  // @@index([userId])
+  @@index([userId])
   @@index([postId])
 }
 model Recommendations{

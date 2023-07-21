@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins text-xl w-full relative">
+      <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins text-lg w-full relative">
         <div class="  flex flex-wrap  items-center justify-between lg:px-10 w-full  ">
           <NavLink href="/" className=" m-4 flex items-center">
             <img
@@ -31,7 +31,7 @@ const Navbar = () => {
               Bloomin
             </span>
           </NavLink>
-          <div className=" border-2 rounded-xl px-5 py-3 hidden xxxl:block">
+          <div className=" border-2 rounded-xl px-5 py-3 hidden xxl:block">
             {city} | {temperature}&#8457; | {humidity}% Humidity { } | {price}&cent;/kHw
           </div>
           <div className="mr-5 lg:hidden ">
@@ -52,7 +52,7 @@ const Navbar = () => {
             id="navbar-default "
           >
             <ul
-              className="w-full flex flex-col p-4 lg:p-0 border border-gray-100 rounded-lg bg-dull-green-background lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white   items-end text-xl font-[600]
+              className="w-full flex flex-col p-4 lg:p-0 border border-gray-100 rounded-lg bg-dull-green-background lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white   items-end text-lg font-[600]
             "
             >
               <div className=" lg:hidden flex w-full items-center justify-between">
@@ -160,7 +160,7 @@ const Navbar = () => {
           </div>
   
         </div>
-        <div className=" border-2 rounded-xl text-center w-[550px] ms-auto me-auto  px-5 py-3 mb-5 xxxl:hidden">
+        <div className=" border-2  rounded-xl text-center w-[420px] md:w-[460px] ms-auto me-auto  text-md md:text-lg px-2 md:px-5 py-3 mb-5 xxl:hidden">
             {city} | {temperature}&#8457; | {humidity}% Humidity { } | {price}&cent;/kHw
           </div>
       </nav>

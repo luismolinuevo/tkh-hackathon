@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import states from "../../states";
+import ErrorBoundary from "../components/ErrorBoundary";
 const Incentives = () => {
   const [programsWithStates, setProgramWithStates] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -10,6 +11,7 @@ const Incentives = () => {
 
   // const [programs, setPrograms] = useState(initialPrograms)
   const [programs, setPrograms] = useState();
+  const navigate = useNavigate();
   console.log(programs);
   useEffect(() => {
     const getRenewData = async () => {
@@ -32,6 +34,9 @@ const Incentives = () => {
           setPrograms(itemsWithStates);
         }
       } catch (e) {
+        setIsLoading(false);
+
+        throw new Error(e);
         console.log(e);
       }
     };
@@ -77,8 +82,8 @@ const Incentives = () => {
             </div>
           </h3>
         </div>
-      ) : (
-        ""
+      ) : programs ? "" : (
+       <ErrorBoundary ContainerStyling = "self-center" />
       )}
       <div className="grid grid-cols-1  mdlg:grid-cols-2 xl:grid-cols-3 xxxl:grid-cols-4 gap-6  auto-rows-fr">
         {filteredStatesSearch.map((program, index) => {
@@ -109,18 +114,14 @@ const Incentives = () => {
                         {contactInfo.contact.firstName}{" "}
                         {contactInfo.contact.lastName}
                       </div>
-                      <div>
-                        {contactInfo.contact.email} 
-                      </div>
-                      <div>
-                      {contactInfo.contact.phone}
-                      </div>
+                      <div>{contactInfo.contact.email}</div>
+                      <div>{contactInfo.contact.phone}</div>
                     </div>
                   );
                 })}
               </div>
               <div className="flex justify-between w-full text-xl self-end mt-auto">
-                <div className="italic"> Updated{" "}: {program.LastUpdate}</div>
+                <div className="italic"> Updated : {program.LastUpdate}</div>
                 <div className="font-bold"> {program.State}</div>
               </div>
             </div>

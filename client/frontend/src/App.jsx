@@ -18,6 +18,7 @@ import Faves from "./pages/Favs";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Signup from "./pages/Signup";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +40,10 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/signup",
+          element: <Signup/>
         },
         {
           path: "/posts",

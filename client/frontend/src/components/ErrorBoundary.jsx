@@ -1,8 +1,8 @@
 import React from "react";
 
-const ErrorBoundary = () => {
+const ErrorBoundary = (props) => {
   return (
-    <div className="flex flex-col items-center mt-[25vh] gap-5  ">
+    <div className={`flex flex-col items-center mt-[20vh] gap-5  w-[600px]   ${props.ContainerStyling} `}>
       <div className="text-8xl font-bold text-slate-500 border-b w-full text-center p-3">
         404{" "}
       </div>

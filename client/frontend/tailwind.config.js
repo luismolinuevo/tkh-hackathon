@@ -29,9 +29,15 @@ export default {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
         },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
+          
+        }
       },
       animation: {
         wiggle: "slide 1s ease-in-out",
+        spin: "spin 1.5s ease-in-out infinite"
       },
       boxShadow: {
         "3xl": "0 10px 10px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",

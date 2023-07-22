@@ -69,7 +69,12 @@ function App() {
         {
           path: "/incentives",
           element: <Incentives />,
-          // loader: getIncentives
+          errorElement: <ErrorBoundary />
+          
+        },
+        {
+          path: "/signup",
+          element: <Signup />,
           errorElement: <ErrorBoundary />
           
         },

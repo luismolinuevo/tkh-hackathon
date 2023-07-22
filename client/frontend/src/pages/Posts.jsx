@@ -59,7 +59,7 @@ const Posts = () => {
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -75,14 +75,14 @@ const Posts = () => {
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}
                     >
                       <option selected="selected">Please Select ▼</option>
 
-                      <option value="easy">Easy</option>
+                      <option value="easy" className="hover:bg-slate-400 ">Easy</option>
                       <option value="medium">Medium</option>
                       <option value="hard">Hard</option>
                     </select>

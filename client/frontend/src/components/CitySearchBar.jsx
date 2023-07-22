@@ -34,7 +34,7 @@ const CitySearchBar = (props) => {
           City
         </label>
         <input
-                  className={props.inputStyle + " h-[54px] text-[18px]"}
+                  className={props.inputStyle + " h-[54px] text-[18px] outline-none"}
           type="text"
           name="city"
           value={props.searchValue}

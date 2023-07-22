@@ -136,7 +136,7 @@ const Home = () => {
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -155,7 +155,7 @@ const Home = () => {
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}

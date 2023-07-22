@@ -10,7 +10,7 @@ function Faves() {
     const fetchFaves = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_SERVER}/post/upvotes/luismolinuevo/upvote`
+          `${import.meta.env.VITE_SERVER}/post/upvotes/upvote`
         );
         if (response.status === 200) {
           setFaves(response.data.getUpvotes);

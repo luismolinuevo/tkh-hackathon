@@ -16,14 +16,14 @@ const Card = ({
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
 
-  const updateLike = async (type, username, id) => {
+  const updateLike = async (type, id) => {
     try {
       const response = await axios({
         method: "put",
         url: `${import.meta.env.VITE_SERVER}/post/${id}/vote/`,
         data: {
           type: type,
-          userName: username,
+          // userName: username,
         },
       });
       console.log(response);

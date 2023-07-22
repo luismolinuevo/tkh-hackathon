@@ -119,7 +119,7 @@ router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),asy
   }
 });
 
-router.get("/upvotes/:type", async (req, res) => {
+router.get("/upvotes/:type", passport.authenticate("jwt", { session: false }),async (req, res) => {
   const { type } = req.params;
   const getUpvotes = await prisma.votes.findMany({
     where: {

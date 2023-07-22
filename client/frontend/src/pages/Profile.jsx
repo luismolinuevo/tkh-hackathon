@@ -26,7 +26,7 @@ const Profile = () => {
       // zipCode: zipCode,
       // goodFor: goodFor,
       livingSituation: postValues.livingSituation,
-      userName: "a default username",
+      // userName: "a default username",
     });
 
     // console.log(res)

@@ -56,7 +56,6 @@ model Post {
   title                    String
 
   userId                   Int
-  // userName  String //since we are faking it I wont have any real relations 
   user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
   votes     Votes[]
   recommendations Recommendations[]
@@ -69,7 +68,6 @@ model Post {
 model Votes {
   id       Int    @id @unique @default(autoincrement())
   postId   Int
-  userName String //since we are faking it I wont have any real relations 
   type     String //could be upvote or downvote
   userId   Int
 

@@ -1,5 +1,6 @@
 import express from "express";
 import prisma from "../db/index.js";
+import passport from "passport";
 
 const router = express.Router();
 
@@ -12,22 +13,18 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/", passport.authenticate("jwt", { session: false }),async (req, res) => {
   console.log(req.body)
   const createPost = await prisma.post.create({
     data: {
       cost: req.body.cost,
       title: req.body.title,
       implementationDifficulty: req.body.implementationDifficulty,
-      // country: req.body.country,
-      // state: req.body.state,
-      // zipCode: req.body.zipCode,
       city: req.body.city,
-      // goodFor: req.body.goodFor,
       livingSituation: req.body.livingSituation,
       description: req.body.description,
-      userName: req.body.userName,
-      // user: {connect: {id: req.body.userId}}
+      // userId: req.user.id
+      user: {connect: {id: req.body.userId}}
     },
   });
 
@@ -36,9 +33,9 @@ router.post("/", async (req, res) => {
   });
 });
 
-router.put("/:postId/vote", async (req, res) => {
+router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),async (req, res) => {
   const { postId } = req.params;
-  const { userName, type } = req.body;
+  const { type } = req.body;
 
   try {
     const post = await prisma.post.findUnique({
@@ -50,7 +47,10 @@ router.put("/:postId/vote", async (req, res) => {
     }
 
     const existingVote = await prisma.votes.findFirst({
-      where: { postId: parseInt(postId), userName },
+      where: { 
+        postId: parseInt(postId),
+        user: {connect: {id: req.body.userId}}
+      },
     });
 
     if (existingVote) {

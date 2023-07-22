@@ -13,6 +13,7 @@ export default {
         "white-highlight": "#FFFFFF",
         "bright-green-highlight": "#41D261",
         "dull-green-background": "rgba(204, 219, 207, 0.40)",
+        "light-green-background" : "#E5EBE1"
       },
       fontFamily: {
         poppins: ["Poppins"],
@@ -43,8 +44,9 @@ export default {
         "3xl": "0 10px 10px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",
         // green:
         //   "8px 8px 15px -5px #AEDA38 ",
-        green: "3px 5px 10px -3px #AEDA38",
+        green: "3px 5px 10px -3px #41D261",
         button: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        hover: "0px 3px 10px #41D261"
       },
     },
   },

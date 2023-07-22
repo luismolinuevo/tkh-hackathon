@@ -13,7 +13,7 @@ const Navbar = () => {
   const { price } = useEnergyPrices();
   const [collapse, setCollapse] = useState(true);
   const [isOpen, setOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   function toggleCollapse() {
     setCollapse(!collapse);
   }
@@ -52,7 +52,7 @@ const Navbar = () => {
             id="navbar-default "
           >
             <ul
-              className="w-full flex flex-col p-4 lg:p-0 border border-gray-100 rounded-lg bg-dull-green-background  lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white   items-end text-lg font-[600]
+              className="w-full flex flex-col p-4 lg:p-0 border border-gray-100 rounded-lg bg-dull-green-background  lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white   text-lg font-[600] items-center
             "
             >
               <div className=" lg:hidden flex w-full items-center justify-between">
@@ -168,7 +168,10 @@ const Navbar = () => {
                         // color: isActive ? "#41D261" : "",
                       };
                     }}
-                    className="  flex justify-center mt-2 lg:mt-0  items-center w-[110px] h-[40px]  rounded text-white bg-bright-green-highlight lg:border-0 duration-200 hover:-translate-y-1 hover:shadow-md   lg:p-0  "
+                      className="  flex justify-center mt-2 lg:mt-0  items-center w-[110px] h-[40px]  rounded text-black   duration-200  shadow-md hover:shadow-hover  border lg:p-0 hover:-translate-y-[2px] 
+                    
+                      
+                        "
                   >
                     Sign Up
                   </NavLink>

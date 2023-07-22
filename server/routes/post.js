@@ -49,7 +49,7 @@ router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),asy
     const existingVote = await prisma.votes.findFirst({
       where: { 
         postId: parseInt(postId),
-        user: {connect: {id: req.body.userId}}
+        userId: req.user.id
       },
     });
 
@@ -119,11 +119,11 @@ router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),asy
   }
 });
 
-router.get("/upvotes/:userName/:type", async (req, res) => {
-  const { userName, type } = req.params;
+router.get("/upvotes/:type", async (req, res) => {
+  const { type } = req.params;
   const getUpvotes = await prisma.votes.findMany({
     where: {
-      userName: userName,
+      userId: req.user.id,
       type: type,
     },
     include: { post: true },

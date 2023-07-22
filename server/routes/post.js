@@ -23,8 +23,8 @@ router.post("/", passport.authenticate("jwt", { session: false }),async (req, re
       city: req.body.city,
       livingSituation: req.body.livingSituation,
       description: req.body.description,
-      // userId: req.user.id
-      user: {connect: {id: req.body.userId}}
+      userId: req.user.id
+      // user: {connect: {id: req.user.id}}
     },
   });
 
@@ -36,6 +36,8 @@ router.post("/", passport.authenticate("jwt", { session: false }),async (req, re
 router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),async (req, res) => {
   const { postId } = req.params;
   const { type } = req.body;
+  console.log(postId);
+  console.log(type)
 
   try {
     const post = await prisma.post.findUnique({
@@ -99,7 +101,7 @@ router.put("/:postId/vote", passport.authenticate("jwt", { session: false }),asy
 
     await prisma.votes.create({
       data: {
-        userName,
+        user: {connect: {id: req.user.id}},
         type,
         post: { connect: { id: parseInt(postId) } },
       },

@@ -15,22 +15,32 @@ const Profile = () => {
 
   const handleCreatePost = async () => {
     // console.log(state);
-    const createPost = axios.post(`${import.meta.env.VITE_SERVER}/post/`, {
-      implementationDifficulty: postValues.difficulty,
-      cost: postValues.cost,
-      title: postValues.title,
-      description: postValues.description,
-      // country: country,
-      // state: state,
-      city: searchValue,
-      // zipCode: zipCode,
-      // goodFor: goodFor,
-      livingSituation: postValues.livingSituation,
-      // userName: "a default username",
-    });
-
+    const token = localStorage.getItem("token");
+    const createPost = axios.post(
+      `${import.meta.env.VITE_SERVER}/post/`,
+      {
+        implementationDifficulty: postValues.difficulty,
+        cost: postValues.cost,
+        title: postValues.title,
+        description: postValues.description,
+        // country: country,
+        // state: state,
+        city: searchValue,
+        // zipCode: zipCode,
+        // goodFor: goodFor,
+        livingSituation: postValues.livingSituation,
+        // userName: "a default username",
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    );
+  
     // console.log(res)
   };
+  
 
   const [postValues, setPostValues] = useState({
     title: "",

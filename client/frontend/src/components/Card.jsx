@@ -21,6 +21,9 @@ const Card = ({
       const response = await axios({
         method: "put",
         url: `${import.meta.env.VITE_SERVER}/post/${id}/vote/`,
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
         data: {
           type: type,
           // userName: username,

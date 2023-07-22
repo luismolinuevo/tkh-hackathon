@@ -17,11 +17,16 @@ const SearchCard = ({
   const [isHidden, setIsHidden] = useState("hidden");
   const [likesStatus, setLikesStatus] = useState("");
 
-  const updateLike = async (type, id) => {
+  const updateLike = async (type) => {
+    console.log(id)
     try {
+      const token = localStorage.getItem("token");
       const response = await axios({
         method: "put",
         url: `${import.meta.env.VITE_SERVER}/post/${id}/vote/`,
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
         data: {
           type: type,
           // userName: username,
@@ -102,7 +107,7 @@ console.log(cost, "dasdsad")
               <div className="flex gap-2">
                 <div>
                   <svg
-                    onClick={() => updateLike("upvote", username, id)}
+                    onClick={() => updateLike("upvote", id)}
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
@@ -119,7 +124,7 @@ console.log(cost, "dasdsad")
                 <div>{votes}</div>
                 <div>
                   <svg
-                    onClick={() => updateLike("downvote", username, id)}
+                    onClick={() => updateLike("downvote", id)}
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"

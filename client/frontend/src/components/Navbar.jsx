@@ -5,6 +5,7 @@ import useEnergyPrices from "../hooks/useEnergyPrices.jsx";
 import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import HumidityIcon from "../../public/humiditysvg.svg";
+import { useSelector } from "react-redux";
 const LoggedIn = true;
 
 const Navbar = () => {
@@ -13,11 +14,13 @@ const Navbar = () => {
   const { price } = useEnergyPrices();
   const [collapse, setCollapse] = useState(true);
   const [isOpen, setOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   function toggleCollapse() {
     setCollapse(!collapse);
   }
 
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  console.log(isLoggedIn)
   return (
     <div>
       <nav class="bg-white border-gray-200 dark:bg-gray-900 font-poppins text-lg w-full relative">
@@ -168,7 +171,7 @@ const Navbar = () => {
                         // color: isActive ? "#41D261" : "",
                       };
                     }}
-                      className="  flex justify-center mt-2 lg:mt-0  items-center w-[110px] h-[40px]  rounded text-black   duration-200  shadow-md hover:shadow-hover  border lg:p-0 hover:-translate-y-[2px] 
+                    className="  flex justify-center mt-2 lg:mt-0  items-center w-[110px] h-[40px]  rounded text-black   duration-200  shadow-md hover:shadow-hover  border lg:p-0 hover:-translate-y-[2px] 
                     
                       
                         "

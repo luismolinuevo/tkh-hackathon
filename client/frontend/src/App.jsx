@@ -18,7 +18,8 @@ import Faves from "./pages/Favs";
 import Profile from "./pages/Profile";
 import LandingPage from "./pages/LandingPage";
 import ErrorBoundary from "./components/ErrorBoundary";
-import Signup from "./pages/Signup";
+import Signup from "./pages/Signup"; 
+import Auth from "./pages/Auth";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,13 +30,12 @@ function App() {
         {
           path: "/",
           element: <LandingPage />,
-          
         },
         {
           path: "/home",
           element: <Home />,
           loader: getPosts,
-          errorElement: <ErrorBoundary />
+          errorElement: <ErrorBoundary />,
         },
         {
           path: "/login",
@@ -43,13 +43,13 @@ function App() {
         },
         {
           path: "/signup",
-          element: <Signup/>
+          element: <Signup />,
         },
         {
           path: "/posts",
           element: <Posts />,
           loader: getPosts,
-          errorElement: <ErrorBoundary />
+          errorElement: <ErrorBoundary />,
         },
         {
           path: "/askai",
@@ -63,20 +63,21 @@ function App() {
           path: "/profile",
           element: <Profile />,
           loader: getPosts,
-          errorElement: <ErrorBoundary />
-          
+          errorElement: <ErrorBoundary />,
         },
         {
           path: "/incentives",
           element: <Incentives />,
-          errorElement: <ErrorBoundary />
-          
+          errorElement: <ErrorBoundary />,
         },
         {
           path: "/signup",
           element: <Signup />,
-          errorElement: <ErrorBoundary />
-          
+          errorElement: <ErrorBoundary />,
+        },
+        {
+          path: "/auth",
+          element: <Auth />,
         },
       ],
     },

@@ -13,21 +13,21 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page-container flex xxl:flex-row flex-col  items-center xxl:items-start   justify-center   w-full  self-center  ">
-      <div className="w-[625px] md:w-[700px]  xxl:w-[645px] h-[400px] flex flex-col justify-center  mt-12  xxl:ps-10 text-center items-center xxl:text-start xxl:items-start ">
+      <div className="w-[450px] md:w-[700px]  xxl:w-[645px] h-[400px] flex flex-col justify-center  mt-12  xxl:ps-10 text-center items-center xxl:text-start xxl:items-start ">
         <div className=" text-[#41D261] not-italic text-[64px] font-poppins font-[900]">
           Sustainable Living for a{" "}
           <span className="text-[#FCC443]">Brighter</span> Future
         </div>
-        <div className="xxl:flex-row  flex gap-10 text-white font-bold text-[16px] mt-8 xxl:mt-16">
+        <div className="xxl:flex-row  flex  gap-5 md:gap-10 text-white font-bold text-[14px] md:text-[16px] mt-8 xxl:mt-16">
           <button
             onClick={openBloombergLink}
-            className="bg-green-background z-20  w-[220px] md:w-[250px] py-3 px-4 duration-100 hover:underline rounded-2xl shadow-button"
+            className="bg-green-background z-20  w-[200px] md:w-[250px] py-3 px-4 duration-100 hover:underline rounded-2xl shadow-button"
           >
             Download Bloomberg's Annual Impact Report
           </button>
           <button
             onClick={() => navigate("/home")}
-            className="bg-green-background  z-20 w-[250px] py-3 px-4 duration-100 hover:underline rounded-2xl shadow-button "
+            className="bg-green-background  z-20 w-[200px] py-3 px-4 duration-100 hover:underline rounded-2xl shadow-button "
           >
             Find Sustainable Solutions
           </button>

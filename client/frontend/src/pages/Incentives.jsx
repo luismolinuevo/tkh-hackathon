@@ -55,14 +55,14 @@ const Incentives = () => {
 
   return (
     <div className="flex flex-col w-full  px-16 gap-7 mt-10">
-      <h1 className="text-5xl  font-poppins">
+      <h1 className="text-4xl  font-poppins font-semibold">
         Find Incentive Programs for Environmental Sustainability
       </h1>
 
       <div className="w-full ">
         <label htmlFor="state-input"></label>
         <input
-          className="border w-full md:w-3/4 p-4 rounded-xl h-[64px] bg-dull-green-background text-2xl outline-none"
+          className="border w-full md:w-3/4 p-4 rounded-xl h-[54px] bg-dull-green-background text-xl outline-none "
           placeholder="Search Program By State"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
@@ -90,12 +90,12 @@ const Incentives = () => {
           return (
             <div
               key={index}
-              className="flex flex-col font-poppins rounded-xl p-8 border bg-white-highlight shadow-md hover:shadow-green hover:-translate-y-0.5  duration-200 min-h-[200px]"
+              className="flex flex-col font-poppins rounded-xl p-8 border bg-white-highlight shadow-md hover:shadow-green hover:-translate-y-0.5  duration-200 min-h-[200px] "
             >
               {/* {program.Name} */}
 
               <a
-                className="hover:underline decoration-green-background text-3xl"
+                className="hover:underline duration-500 decoration-green-background font-medium text-3xl"
                 href={program.WebsiteUrl}
                 target="_blank"
               >

@@ -131,12 +131,12 @@ const Home = () => {
                   <div className="flex flex-col gap-3 ">
                     <label
                       htmlFor="living-situation"
-                      className="text-3xl text-white-highlight"
+                      className="text-2xl text-white-highlight"
                     >
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -150,12 +150,12 @@ const Home = () => {
                   <div className="flex flex-col   gap-3">
                     <label
                       htmlFor="type"
-                      className="text-3xl text-white-highlight"
+                      className="text-2xl text-white-highlight"
                     >
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-lg appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}

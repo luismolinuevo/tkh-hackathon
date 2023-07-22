@@ -35,7 +35,7 @@ const Posts = () => {
           /> */}
           <div className="flex flex-col self-center w-full p-3 gap-10  ">
             <div className="flex gap-5">
-              <div className="w-full text-6xl  text-black">
+              <div className="w-full text-5xl  text-black font-semibold">
                 Find Sustainable Solutions for Your Home
               </div>
             </div>
@@ -48,18 +48,18 @@ const Posts = () => {
                     setSearchValue={setSearchValue}
                     labelInputGap=""
                     labelStyling=""
-                    inputStyle="md:w-3/4 border p-4 rounded-xl h-[64px] bg-dull-green-background"
+                    inputStyle="md:w-3/4 border p-4 rounded-xl h-[54px] bg-dull-green-background"
                     dropdownStyle="dropdown absolute top-[90px] z-10 bg-white w-3/4"
                     placeholder="Enter City"
                   />
                 </div>
                 <div className="flex flex-col md:flex-row gap-[50px]  text-black">
                   <div className="flex flex-col gap-3 ">
-                    <label htmlFor="living-situation" className="text-3xl ">
+                    <label htmlFor="living-situation" className="text-2xl ">
                       Living Situation:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="living-situation"
                       id="living-situation"
                       onChange={(e) => setLivingSituation(e.target.value)}
@@ -71,18 +71,18 @@ const Posts = () => {
                     </select>
                   </div>
                   <div className="flex flex-col  gap-3">
-                    <label htmlFor="type" className="text-3xl">
+                    <label htmlFor="type" className="text-2xl">
                       Difficulty:{" "}
                     </label>
                     <select
-                      className=" shadow-md w-56 h-14 border p-2 indent-4 rounded-3xl text-xl appearance-none"
+                      className="outline-none shadow-md w-56 h-12 border p-2 indent-4 rounded-3xl text-xl appearance-none"
                       name="type"
                       id="type"
                       onChange={(e) => setDifficulty(e.target.value)}
                     >
                       <option selected="selected">Please Select ▼</option>
 
-                      <option value="easy">Easy</option>
+                      <option value="easy" className="hover:bg-slate-400 ">Easy</option>
                       <option value="medium">Medium</option>
                       <option value="hard">Hard</option>
                     </select>

@@ -16,7 +16,7 @@ export default function Signup() {
   };
 
   return (
-    <div className=" w-full h-min-full flex flex-col  items-center">
+    <div className=" w-full h-min-full flex flex-col relative items-center">
       <div className="flex justify-center items-center mb-3">
         {" "}
         <img src="/recycle.svg" className="h-[78px] w-[78px]" alt="TEMP LOGO" />

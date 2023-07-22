@@ -9,9 +9,16 @@ function Faves() {
   useEffect(() => {
     const fetchFaves = async () => {
       try {
+        const token = localStorage.getItem("token");
         const response = await axios.get(
-          `${import.meta.env.VITE_SERVER}/post/upvotes/upvote`
+          `${import.meta.env.VITE_SERVER}/post/upvotes/upvote`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+            },
+          }
         );
+        
         if (response.status === 200) {
           setFaves(response.data.getUpvotes);
           console.log(response.data.getUpvotes);
